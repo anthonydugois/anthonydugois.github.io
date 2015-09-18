@@ -40,7 +40,7 @@ export default {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract(
                     "style",
-                    "css"
+                    "css!cssnext"
                 ),
             },
         ],
