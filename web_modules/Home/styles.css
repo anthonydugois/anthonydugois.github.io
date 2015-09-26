@@ -1,4 +1,14 @@
 @import "App/config.css";
 
-.ad-Home {}
-.ad-Three {}
+.ad-Home {
+    position: relative;
+    height: 100vh;
+}
+.ad-Three {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
