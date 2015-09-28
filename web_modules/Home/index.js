@@ -1,25 +1,22 @@
 import "./styles"
 
 import THREE from "three"
-import oc from "three-orbit-controls"
 import TweenLite from "gsap"
-
-const OrbitControls = oc(THREE)
 
 // mathematic constants
 const PI = Math.PI
 
 // init the scene
-let WIDTH = window.innerWidth,
-    HEIGHT = window.innerHeight,
-    RATIO = WIDTH / HEIGHT,
-    FIELDVIEW = 60,
-    NEAR = 1,
-    FAR = 5000
+let WIDTH = window.innerWidth
+let HEIGHT = window.innerHeight
+let RATIO = WIDTH / HEIGHT
+let FIELDVIEW = 60
+let NEAR = 1
+let FAR = 5000
 
-const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR),
-    SCENE = new THREE.Scene(),
-    RENDERER = new THREE.WebGLRenderer({
+const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR)
+const SCENE = new THREE.Scene()
+const RENDERER = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true,
     })
@@ -28,66 +25,32 @@ RENDERER.setSize(WIDTH, HEIGHT)
 
 document.querySelector("#three").appendChild(RENDERER.domElement)
 
-CAMERA.position.set(0, 150, 150)
+CAMERA.position.set(150, 150, 150)
 CAMERA.lookAt(new THREE.Vector3())
 
 SCENE.add(new THREE.AxisHelper(500))
 
 // let's draw the scene!
-const bigCube = new THREE.Object3D()
-
-// lights
-/*const lightX = new THREE.DirectionalLight(0xeeeeee, 1),
-    lightY = new THREE.DirectionalLight(0xdddddd, 1),
-    lightZ = new THREE.DirectionalLight(0xcccccc, 1)
-
-lightX.position.x = 100
-lightY.position.y = 100
-lightZ.position.z = 100
-
-bigCube.add(lightX)
-bigCube.add(lightY)
-bigCube.add(lightZ)*/
+const globalObject = new THREE.Object3D()
 
 // objects
-const length = 3, size = 5,
-    cubes = new THREE.Object3D(),
-    cube = new THREE.Mesh(new THREE.BoxGeometry(size, size, size), new THREE.MeshLambertMaterial())
+const length = 3, size = 5
+const bigCube = new THREE.Object3D()
+const cubes = new THREE.Object3D()
+const cubeGeometry = new THREE.BoxGeometry(size, size, size)
+const cubeMaterial = new THREE.MeshFaceMaterial([
+    new THREE.MeshBasicMaterial({ color: 0xeeeeee }),
+    new THREE.MeshBasicMaterial({ color: 0xeeeeee }),
+    new THREE.MeshBasicMaterial({ color: 0xdddddd }),
+    new THREE.MeshBasicMaterial({ color: 0xdddddd }),
+    new THREE.MeshBasicMaterial({ color: 0xcccccc }),
+    new THREE.MeshBasicMaterial({ color: 0xcccccc }),
+])
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
 
 // matrixes
-let cubesMatrix = getCube({ size, length }),
-    randomCube = THREE.Math.randInt(0, cubesMatrix.length - 1)
-
-function getCube({ size, length }) {
-    let vectors = [],
-        gap = .2,
-        d = size + gap,
-        half = Math.floor(length / 2)
-
-    for (let f = 0 ; f < length ; f++) {
-        let lines = []
-
-        for (let l = 0 ; l < length ; l++) {
-            let cols = []
-
-            for (let c = 0 ; c < length ; c++) {
-                let x = (c - half) * d,
-                    y = (l - half) * d,
-                    z = (f - half) * d
-
-                cols.push(new THREE.Vector3(x, y, z))
-            }
-
-            if (l % 2 === 0) lines.push(...cols)
-            else lines.push(...cols.reverse())
-        }
-
-        if (f % 2 === 0) vectors.push(...lines)
-        else vectors.push(...lines.reverse())
-    }
-
-    return vectors
-}
+let cubesMatrix = getCube({ size, length })
+let randomCube = THREE.Math.randInt(0, cubesMatrix.length - 1)
 
 // define cubes
 cubesMatrix.forEach((coords, index) => {
@@ -100,7 +63,46 @@ cubesMatrix.forEach((coords, index) => {
 
 bigCube.add(cubes)
 
-SCENE.add(bigCube)
+globalObject.add(bigCube)
+
+SCENE.add(globalObject)
+
+function getCube({ size, length }) {
+    let vectors = []
+    let gap = .2
+    let d = size + gap
+    let half = Math.floor(length / 2)
+
+    for (let f = 0 ; f < length ; f++) {
+        let lines = []
+
+        for (let l = 0 ; l < length ; l++) {
+            let cols = []
+
+            for (let c = 0 ; c < length ; c++) {
+                let x = (c - half) * d
+                let y = (l - half) * d
+                let z = (f - half) * d
+
+                cols.push(new THREE.Vector3(x, y, z))
+            }
+
+            if (l % 2 === 0) {
+                lines.push(...cols)
+            } else {
+                lines.push(...cols.reverse())
+            }
+        }
+
+        if (f % 2 === 0) {
+            vectors.push(...lines)
+        } else {
+            vectors.push(...lines.reverse())
+        }
+    }
+
+    return vectors
+}
 
 // udate the scene
 update(true, .5)
@@ -142,16 +144,14 @@ function update(toRight, spd) {
 }
 
 window.onmousemove = (e) => {
-    const x = e.pageX,
-        halfX = x / 2,
-        halfW = WIDTH / 2,
-        y = e.pageY,
-        halfY = y / 2,
-        halfH = HEIGHT / 2
+    const x = e.pageX, y = e.pageY
+    const halfW = WIDTH / 2, halfH = HEIGHT / 2
+    const pX = x / halfW - 1, pY = y / halfH - 1
+    const a = PI / 2
 
     TweenLite.to(bigCube.rotation, 1, {
-        x: (halfY / halfH) * PI,
-        y: -(halfX / halfW) * PI,
+        x: pY * a,
+        y: pX * a,
     })
 }
 
