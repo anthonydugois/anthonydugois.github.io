@@ -3,7 +3,32 @@
 .ad-Home {
     position: relative;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+    .ad-Home-identity {
+        position: relative;
+        text-align: center;
+    }
+        .ad-Home-title {
+            margin: 0;
+            text-transform: uppercase;
+            font-family: "Montserrat", sans-serif;
+            font-weight: normal;
+            font-size: 2rem;
+            letter-spacing: .1rem;
+            color: #555;
+        }
+        .ad-Home-lead {
+            text-transform: uppercase;
+            line-height: 1.5;
+            font-family: "Open Sans", sans-serif;
+            font-size: 1rem;
+            letter-spacing: .1rem;
+            color: #aaa;
+        }
+
 .ad-Three {
     overflow: hidden;
     position: absolute;
@@ -12,3 +37,29 @@
     left: 0;
     right: 0;
 }
+
+.ad-Nav {
+}
+.ad-Navlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ad-Navlink {
+    display: block;
+    padding: 2rem 1.2rem 0;
+    transition: color .2s;
+    font-size: 1.8rem;
+    color: #333;
+}
+.ad-Navlink:focus,
+.ad-Navlink:hover {
+    color: var(--ad-primaryColor);
+}
+
+.ad-Icon {
+    height: 1em;
+}
+    .ad-Icon path {
+        fill: currentColor;
+    }

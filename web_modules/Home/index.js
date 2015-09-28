@@ -25,16 +25,16 @@ RENDERER.setSize(WIDTH, HEIGHT)
 
 document.querySelector("#three").appendChild(RENDERER.domElement)
 
-CAMERA.position.set(150, 150, 150)
+CAMERA.position.set(200, 200, 200)
 CAMERA.lookAt(new THREE.Vector3())
-
-SCENE.add(new THREE.AxisHelper(500))
 
 // let's draw the scene!
 const globalObject = new THREE.Object3D()
 
+globalObject.position.y = 80
+
 // objects
-const length = 3, size = 5
+const length = 3, size = 6
 const bigCube = new THREE.Object3D()
 const cubes = new THREE.Object3D()
 const cubeGeometry = new THREE.BoxGeometry(size, size, size)
@@ -63,13 +63,30 @@ cubesMatrix.forEach((coords, index) => {
 
 bigCube.add(cubes)
 
+const minCubes = new THREE.Object3D()
+const minCubeGeometry = new THREE.BoxGeometry(size, size, size)
+const minCubeMaterial = new THREE.MeshFaceMaterial([
+    new THREE.MeshBasicMaterial({ color: 0x38c6ea }),
+    new THREE.MeshBasicMaterial({ color: 0x38c6ea }),
+    new THREE.MeshBasicMaterial({ color: 0x2ba0be }),
+    new THREE.MeshBasicMaterial({ color: 0x2ba0be }),
+    new THREE.MeshBasicMaterial({ color: 0x268ea8 }),
+    new THREE.MeshBasicMaterial({ color: 0x268ea8 }),
+])
+const minCube = new THREE.Mesh(minCubeGeometry, minCubeMaterial)
+const radius = size * length * 2
+
+minCube.position.set(radius, 0, 0)
+minCubes.add(minCube)
+
 globalObject.add(bigCube)
+globalObject.add(minCubes)
 
 SCENE.add(globalObject)
 
 function getCube({ size, length }) {
     let vectors = []
-    let gap = .2
+    let gap = .25
     let d = size + gap
     let half = Math.floor(length / 2)
 
@@ -83,6 +100,12 @@ function getCube({ size, length }) {
                 let x = (c - half) * d
                 let y = (l - half) * d
                 let z = (f - half) * d
+
+                if (length % 2 === 0) {
+                    x += size / 2
+                    y += size / 2
+                    z += size / 2
+                }
 
                 cols.push(new THREE.Vector3(x, y, z))
             }
@@ -143,6 +166,12 @@ function update(toRight, spd) {
     setTimeout(() => update(toRight, spd), 1000 * spd)
 }
 
+function animate() {
+    minCube.rotation.x += 0.01
+    minCube.rotation.y += 0.01
+    minCubes.rotation.y += .005
+}
+
 window.onmousemove = (e) => {
     const x = e.pageX, y = e.pageY
     const halfW = WIDTH / 2, halfH = HEIGHT / 2
@@ -168,6 +197,7 @@ window.onresize = () => {
 
 // rendering
 function render() {
+    animate()
     RENDERER.render(SCENE, CAMERA)
 }
 
