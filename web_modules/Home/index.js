@@ -3,12 +3,15 @@ import "./styles"
 import THREE from "three"
 import TweenLite from "gsap"
 
-// mathematic constants
 const PI = Math.PI
+const styles = {
+    bigCube: [0xEEEEEE, 0xDDDDDD, 0xCCCCCC],
+    minCube: [0x4FC3F7, 0x03A9F4, 0x0288D1],
+}
 
 // init the scene
-let WIDTH = window.innerWidth
-let HEIGHT = window.innerHeight
+let WIDTH = 500
+let HEIGHT = 250
 let RATIO = WIDTH / HEIGHT
 let FIELDVIEW = 60
 let NEAR = 1
@@ -17,21 +20,18 @@ let FAR = 5000
 const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR)
 const SCENE = new THREE.Scene()
 const RENDERER = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true,
-    })
+    canvas: document.querySelector("#three"),
+    alpha: true,
+    antialias: true,
+})
 
 RENDERER.setSize(WIDTH, HEIGHT)
 
-document.querySelector("#three").appendChild(RENDERER.domElement)
-
-CAMERA.position.set(200, 200, 200)
+CAMERA.position.set(40, 40, 40)
 CAMERA.lookAt(new THREE.Vector3())
 
 // let's draw the scene!
 const globalObject = new THREE.Object3D()
-
-globalObject.position.y = 80
 
 // objects
 const length = 3, size = 6
@@ -39,22 +39,18 @@ const bigCube = new THREE.Object3D()
 const cubes = new THREE.Object3D()
 const cubeGeometry = new THREE.BoxGeometry(size, size, size)
 const cubeMaterial = new THREE.MeshFaceMaterial([
-    new THREE.MeshBasicMaterial({ color: 0xeeeeee }),
-    new THREE.MeshBasicMaterial({ color: 0xeeeeee }),
-    new THREE.MeshBasicMaterial({ color: 0xdddddd }),
-    new THREE.MeshBasicMaterial({ color: 0xdddddd }),
-    new THREE.MeshBasicMaterial({ color: 0xcccccc }),
-    new THREE.MeshBasicMaterial({ color: 0xcccccc }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[0] }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[0] }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[1] }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[1] }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[2] }),
+    new THREE.MeshBasicMaterial({ color: styles.bigCube[2] }),
 ])
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
 
-// matrixes
-let cubesMatrix = getCube({ size, length })
-let randomCube = THREE.Math.randInt(0, cubesMatrix.length - 1)
-
 // define cubes
-cubesMatrix.forEach((coords, index) => {
-    const _cube = (index !== randomCube) ? cube.clone() : new THREE.Object3D()
+getCube({ size, length }).forEach((coords, index) => {
+    const _cube = (index !== 0) ? cube.clone() : new THREE.Object3D()
 
     cubes.add(_cube)
 
@@ -64,20 +60,23 @@ cubesMatrix.forEach((coords, index) => {
 bigCube.add(cubes)
 
 const minCubes = new THREE.Object3D()
-const minCubeGeometry = new THREE.BoxGeometry(size, size, size)
 const minCubeMaterial = new THREE.MeshFaceMaterial([
-    new THREE.MeshBasicMaterial({ color: 0x38c6ea }),
-    new THREE.MeshBasicMaterial({ color: 0x38c6ea }),
-    new THREE.MeshBasicMaterial({ color: 0x2ba0be }),
-    new THREE.MeshBasicMaterial({ color: 0x2ba0be }),
-    new THREE.MeshBasicMaterial({ color: 0x268ea8 }),
-    new THREE.MeshBasicMaterial({ color: 0x268ea8 }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[0] }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[0] }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[1] }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[1] }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[2] }),
+    new THREE.MeshBasicMaterial({ color: styles.minCube[2] }),
 ])
-const minCube = new THREE.Mesh(minCubeGeometry, minCubeMaterial)
-const radius = size * length * 2
+const minCube = new THREE.Mesh(new THREE.BoxGeometry(size, size, size), minCubeMaterial)
+const xminCube = new THREE.Mesh(new THREE.BoxGeometry(size / 3, size / 3, size / 3), minCubeMaterial)
+const radius = size * length * 3 / 2
 
 minCube.position.set(radius, 0, 0)
+xminCube.position.set(radius, -size / 2, size * 3 / 2)
+
 minCubes.add(minCube)
+minCubes.add(xminCube)
 
 globalObject.add(bigCube)
 globalObject.add(minCubes)
@@ -86,7 +85,7 @@ SCENE.add(globalObject)
 
 function getCube({ size, length }) {
     let vectors = []
-    let gap = .25
+    let gap = .2
     let d = size + gap
     let half = Math.floor(length / 2)
 
@@ -101,6 +100,7 @@ function getCube({ size, length }) {
                 let y = (l - half) * d
                 let z = (f - half) * d
 
+                // place the big cube on center
                 if (length % 2 === 0) {
                     x += size / 2
                     y += size / 2
@@ -128,9 +128,9 @@ function getCube({ size, length }) {
 }
 
 // udate the scene
-update(true, .5)
+moveCubes(true, .5)
 
-function update(toRight, spd) {
+function moveCubes(toRight, spd) {
     for (let cubesCount = cubes.children.length, emptyIndex = 0 ; emptyIndex < cubesCount ; emptyIndex++) {
         if (cubes.children[emptyIndex].type === "Object3D") {
             let cubeIndex
@@ -139,42 +139,46 @@ function update(toRight, spd) {
             else cubeIndex = emptyIndex - 1
 
             if (cubeIndex < 0) {
-                cubeIndex = 0
+                cubeIndex = 1
                 toRight = true
             }
 
             if (cubeIndex > cubesCount - 1) {
-                cubeIndex = cubesCount - 1
+                cubeIndex = cubesCount - 2
                 toRight = false
             }
 
-            const empty = cubes.children[emptyIndex],
-                cube = cubes.children[cubeIndex],
-                _cube = cube.clone()
+            const empty = cubes.children[emptyIndex]
+            const cube = cubes.children[cubeIndex]
+            const _empty = empty.clone()
+            const _cube = cube.clone()
 
             cubes.children[emptyIndex] = cube
             cubes.children[cubeIndex] = empty
 
-            TweenLite.to(cube.position, spd, { ...empty.position })
-
+            TweenLite.to(cube.position, spd, { ..._empty.position })
             empty.position.set(_cube.position.x, _cube.position.y, _cube.position.z)
 
             break
         }
     }
 
-    setTimeout(() => update(toRight, spd), 1000 * spd)
+    setTimeout(() => moveCubes(toRight, spd), 1000 * spd)
 }
 
-function animate() {
+function update() {
     minCube.rotation.x += 0.01
     minCube.rotation.y += 0.01
+
+    xminCube.rotation.x -= 0.01
+    xminCube.rotation.y -= 0.01
+
     minCubes.rotation.y += .005
 }
 
 window.onmousemove = (e) => {
     const x = e.pageX, y = e.pageY
-    const halfW = WIDTH / 2, halfH = HEIGHT / 2
+    const halfW = window.innerWidth / 2, halfH = window.innerHeight / 2
     const pX = x / halfW - 1, pY = y / halfH - 1
     const a = PI / 2
 
@@ -184,20 +188,9 @@ window.onmousemove = (e) => {
     })
 }
 
-window.onresize = () => {
-    WIDTH = window.innerWidth
-    HEIGHT = window.innerHeight
-    RATIO = WIDTH / HEIGHT
-
-    RENDERER.setSize(WIDTH, HEIGHT)
-
-    CAMERA.aspect = RATIO
-    CAMERA.updateProjectionMatrix()
-}
-
 // rendering
 function render() {
-    animate()
+    update()
     RENDERER.render(SCENE, CAMERA)
 }
 

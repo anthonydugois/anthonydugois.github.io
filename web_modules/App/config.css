@@ -2,5 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
 :root {
-    --ad-primaryColor: #2ba0be;
+    --ad-primaryColor: #03A9F4;
+    --ad-secondaryColor: #151515;
 }

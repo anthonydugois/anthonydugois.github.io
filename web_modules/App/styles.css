@@ -9,7 +9,6 @@ body {
     color: #000;
 }
 
-.ad-App {}
 .ad-Layout {
     display: flex;
     flex-direction: column;

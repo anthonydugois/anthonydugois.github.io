@@ -4,11 +4,15 @@
     position: relative;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: var(--ad-secondaryColor);
 }
-    .ad-Home-identity {
-        position: relative;
+    .ad-Home-canvas {
+        margin-top: -6rem;
+    }
+    .ad-Home-main {
         text-align: center;
     }
         .ad-Home-title {
@@ -18,42 +22,32 @@
             font-weight: normal;
             font-size: 2rem;
             letter-spacing: .1rem;
-            color: #555;
+            color: #ffffff;
         }
         .ad-Home-lead {
             text-transform: uppercase;
-            line-height: 1.5;
+            line-height: 1.6;
             font-family: "Open Sans", sans-serif;
-            font-size: 1rem;
-            letter-spacing: .1rem;
-            color: #aaa;
+            font-size: 1.05rem;
+            letter-spacing: .2rem;
+            color: #cccccc;
         }
 
-.ad-Three {
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.ad-Nav {
-}
-.ad-Navlist {
+.ad-Nav-list {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.ad-Navlink {
+.ad-Nav-link {
     display: block;
-    padding: 2rem 1.2rem 0;
+    padding: 0 1.2rem;
     transition: color .2s;
     font-size: 1.8rem;
-    color: #333;
+    color: #fff;
 }
-.ad-Navlink:focus,
-.ad-Navlink:hover {
+.ad-Nav-link:focus,
+.ad-Nav-link:hover {
     color: var(--ad-primaryColor);
 }
 
