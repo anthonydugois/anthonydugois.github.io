@@ -9,7 +9,7 @@ export default (options, callback) => {
             index: [
                 ...(config.entry.index || []),
                 `webpack-dev-server/client?${__SERVER_URL__}`,
-                `webpack/hot/only-dev-server`,
+                "webpack/hot/only-dev-server",
             ],
         },
         plugins: [
@@ -25,7 +25,7 @@ export default (options, callback) => {
 
     const server = new webpackDevServer(compiler, {
         publicPath: `/${options.__OUTPUT_DIR__}/`,
-        historyApiFallback: __APP_HISTORY__,
+        historyApiFallback: true,
         hot: true,
         noInfo: true,
         stats: {

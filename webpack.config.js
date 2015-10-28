@@ -2,7 +2,18 @@ import path from "path"
 import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 
-import variables, {defineVariables} from "./variables"
+import autoprefixer from "autoprefixer"
+import stylelint from "stylelint"
+import postcssBrandColors from "postcss-brand-colors"
+import postcssColorFunction from "postcss-color-function"
+import postcssCustomMedia from "postcss-custom-media"
+import postcssCustomProperties from "postcss-custom-properties"
+import postcssCustomSelectors from "postcss-custom-selectors"
+import postcssImport from "postcss-import"
+import postcssMediaMinmax from "postcss-media-minmax"
+import postcssUrl from "postcss-url"
+
+import variables, { defineVariables } from "./variables"
 
 defineVariables()
 
@@ -15,7 +26,7 @@ export default {
     output: {
         path: path.join(__dirname, __OUTPUT_DIR__),
         publicPath: `${__SERVER_URL__}/${__OUTPUT_DIR__}/`,
-        filename: `bundle.js`,
+        filename: "bundle.js",
     },
     resolve: {
         extensions: [
@@ -31,7 +42,7 @@ export default {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loaders: [
-                    "babel?stage=0",
+                    "babel",
                     "eslint",
                 ],
             },
@@ -40,7 +51,7 @@ export default {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract(
                     "style",
-                    "css!cssnext"
+                    "css!postcss"
                 ),
             },
         ],
@@ -52,13 +63,24 @@ export default {
         }),
         ...(__PROD__ ? [
             new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false,
-                },
+                compress: { warnings: false },
             }),
         ] : [])
     ],
     eslint: {
         configFile: "./.eslintrc",
     },
+    postcss: (webpack) => {
+        return [
+            postcssBrandColors,
+            postcssColorFunction,
+            postcssCustomMedia,
+            postcssCustomProperties,
+            postcssCustomSelectors,
+            postcssImport({ addDependencyTo: webpack }),
+            postcssMediaMinmax,
+            postcssUrl,
+            stylelint,
+        ]
+    }
 }
