@@ -1,4 +1,6 @@
 import THREE from "three"
+import TweenLite from "gsap"
+
 import "./styles"
 
 const PI = Math.PI
@@ -23,11 +25,11 @@ const RENDERER = new THREE.WebGLRenderer({
 
 RENDERER.setSize(WIDTH, HEIGHT)
 
-CAMERA.position.set(0, 0, 300)
+CAMERA.position.set(0, 0, 200)
 CAMERA.lookAt(new THREE.Vector3())
 
 // helpers
-// SCENE.add(new THREE.AxisHelper(500))
+SCENE.add(new THREE.AxisHelper(500))
 
 // draw the scene
 const nbBoxes = 100
@@ -72,6 +74,10 @@ function update() {
             box.rotation.z += .01
         }
 
+        if (index === 0 || _boxes[index - 1].rotation.x > .005) {
+            box.rotation.x += .005
+        }
+
         let sign = index % 2 === 0 ? 1 : -1
 
         box.children[0].rotation.x += sign * rand(.01, .05)
@@ -83,13 +89,18 @@ function update() {
     let intersects = RAYCASTER.intersectObjects(SCENE.children, true)
 
     intersects.forEach((intersect, index) => {
-        intersect.object.position.y += 10
+        const obj = intersect.object
     })
 }
 
 window.onmousemove = (e) => {
     MOUSE.x = (e.clientX / WIDTH) * 2 - 1
     MOUSE.y = - (e.clientY / HEIGHT) * 2 + 1
+
+    TweenLite.to(CAMERA.rotation, 1, {
+        x: MOUSE.y * PI / 32,
+        y: -MOUSE.x * PI / 32,
+    })
 }
 
 window.onresize = () => {
