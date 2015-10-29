@@ -1,1 +1,8 @@
 @import url(App/config.css);
+
+.ad-Layout {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
