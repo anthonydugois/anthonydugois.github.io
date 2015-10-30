@@ -3,7 +3,15 @@ import TweenLite from "gsap"
 
 import "./styles"
 
+// Maths
 const PI = Math.PI
+const rand = (min, max) => min + Math.random() * (max - min)
+const randInt = (min, max) => Math.round(rand(min, max))
+
+const colors = {
+    primary: 0x000000,
+    secondary: 0x2196F3,
+}
 
 // init the scene
 let WIDTH = window.innerWidth,
@@ -16,7 +24,6 @@ let WIDTH = window.innerWidth,
 
 const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR)
 const SCENE = new THREE.Scene()
-const RAYCASTER = new THREE.Raycaster()
 const RENDERER = new THREE.WebGLRenderer({
     alpha: true,
     antialias: true,
@@ -29,7 +36,7 @@ CAMERA.position.set(0, 0, 200)
 CAMERA.lookAt(new THREE.Vector3())
 
 // helpers
-SCENE.add(new THREE.AxisHelper(500))
+// SCENE.add(new THREE.AxisHelper(500))
 
 // draw the scene
 const nbBoxes = 100
@@ -39,10 +46,15 @@ const boxSize = (maxSize - minSize) / nbBoxes
 const rad = 100, a = .02
 
 const boxes = new THREE.Object3D()
-const boxMat = new THREE.MeshBasicMaterial({ color: 0x000000 })
+const boxMat = new THREE.MeshLambertMaterial()
+
+const spheres = []
+const sphMat = new THREE.MeshBasicMaterial({ color: colors.secondary })
 
 for (let i = nbBoxes ; i > 0 ; i--) {
     const size = minSize + boxSize * i
+    const posY = size * 2 + randInt(-10, 10)
+
     const boxGeom = new THREE.BoxGeometry(size, size, size)
     const boxParent = new THREE.Object3D()
     const box = new THREE.Mesh(boxGeom, boxMat)
@@ -50,22 +62,35 @@ for (let i = nbBoxes ; i > 0 ; i--) {
     box.position.y = randInt(rad - size, rad + size)
     box.position.z = randInt(-size, size)
 
-    boxParent.add(box)
+    const sphGeom = new THREE.SphereGeometry(rand(.1, .5), 4, 4)
+    const sphParent = new THREE.Object3D()
+    const sph = new THREE.Mesh(sphGeom, sphMat)
+    const sphLight = new THREE.PointLight(colors.secondary, .1, posY)
 
+    sph.position.y = posY
+    sphLight.position.y = posY
+
+    sphParent.add(sph)
+    sphParent.add(sphLight)
+    sphParent.position.y = box.position.y
+    sphParent.rotation.x = rand(0, PI)
+
+    spheres.push(sphParent)
+
+    boxParent.add(box)
+    boxParent.add(sphParent)
     boxParent.rotation.z = i * a
 
     boxes.add(boxParent)
 }
 
+const lights = new THREE.Object3D()
+const ambientLight = new THREE.AmbientLight(colors.primary)
+
+lights.add(ambientLight)
+
 SCENE.add(boxes)
-
-function rand(min, max) {
-    return min + Math.random() * (max - min)
-}
-
-function randInt(min, max) {
-    return Math.round(rand(min, max))
-}
+SCENE.add(lights)
 
 // update the scene
 function update() {
@@ -84,13 +109,7 @@ function update() {
         box.children[0].rotation.y += sign * rand(.01, .05)
     })
 
-    RAYCASTER.setFromCamera(MOUSE, CAMERA)
-
-    let intersects = RAYCASTER.intersectObjects(SCENE.children, true)
-
-    intersects.forEach((intersect, index) => {
-        const obj = intersect.object
-    })
+    spheres.forEach((sph, index, _spheres) => sph.rotation.x += (index + 1) / _spheres.length * .05)
 }
 
 window.onmousemove = (e) => {
