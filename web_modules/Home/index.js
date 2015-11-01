@@ -35,9 +35,6 @@ RENDERER.setSize(WIDTH, HEIGHT)
 CAMERA.position.set(0, 0, 200)
 CAMERA.lookAt(new THREE.Vector3())
 
-// helpers
-// SCENE.add(new THREE.AxisHelper(500))
-
 // draw the scene
 const nbBoxes = 100
 const minSize = 1, maxSize = 10
@@ -89,23 +86,8 @@ const ambientLight = new THREE.AmbientLight(colors.primary)
 
 lights.add(ambientLight)
 
-const globes = new THREE.Object3D()
-const nbGlobes = 150
-const globeMat = new THREE.MeshBasicMaterial({ color: 0xffffff })
-
-for (let i = 0 ; i < nbGlobes ; i++) {
-    const globeGeom = new THREE.SphereGeometry(rand(.1, .4), 4, 4)
-    const globe = new THREE.Mesh(globeGeom, globeMat)
-    const maxPos = 100
-
-    globe.position.set(randInt(-maxPos * 2, maxPos * 2), randInt(-maxPos, maxPos), randInt(-maxPos, maxPos))
-
-    globes.add(globe)
-}
-
 SCENE.add(lights)
 SCENE.add(boxes)
-SCENE.add(globes)
 
 // update the scene
 function update() {
