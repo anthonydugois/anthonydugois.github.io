@@ -3,6 +3,7 @@
 .ad-Lead {
     margin-top: 1rem;
     text-align: center;
+    font-family: "Noto Serif", serif;
     font-style: italic;
     font-size: 1.6rem;
     color: var(--ad-Color-sec);
