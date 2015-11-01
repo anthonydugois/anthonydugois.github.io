@@ -62,10 +62,10 @@ for (let i = nbBoxes ; i > 0 ; i--) {
     box.position.y = randInt(rad - size, rad + size)
     box.position.z = randInt(-size, size)
 
-    const sphGeom = new THREE.SphereGeometry(rand(.1, .5), 4, 4)
+    const sphGeom = new THREE.SphereGeometry(rand(.1, .6), 4, 4)
     const sphParent = new THREE.Object3D()
     const sph = new THREE.Mesh(sphGeom, sphMat)
-    const sphLight = new THREE.PointLight(colors.secondary, .1, posY)
+    const sphLight = new THREE.PointLight(colors.secondary, .15, posY)
 
     sph.position.y = posY
     sphLight.position.y = posY
@@ -89,8 +89,23 @@ const ambientLight = new THREE.AmbientLight(colors.primary)
 
 lights.add(ambientLight)
 
-SCENE.add(boxes)
+const globes = new THREE.Object3D()
+const nbGlobes = 150
+const globeMat = new THREE.MeshBasicMaterial({ color: 0xffffff })
+
+for (let i = 0 ; i < nbGlobes ; i++) {
+    const globeGeom = new THREE.SphereGeometry(rand(.1, .4), 4, 4)
+    const globe = new THREE.Mesh(globeGeom, globeMat)
+    const maxPos = 100
+
+    globe.position.set(randInt(-maxPos * 2, maxPos * 2), randInt(-maxPos, maxPos), randInt(-maxPos, maxPos))
+
+    globes.add(globe)
+}
+
 SCENE.add(lights)
+SCENE.add(boxes)
+SCENE.add(globes)
 
 // update the scene
 function update() {
