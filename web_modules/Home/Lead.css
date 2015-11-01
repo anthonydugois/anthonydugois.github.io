@@ -1,0 +1,9 @@
+@import url(App/config.css);
+
+.ad-Lead {
+    margin-top: 1rem;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--ad-Color-sec);
+}

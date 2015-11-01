@@ -1,5 +1,9 @@
 @import url(App/config.css);
 
+@import url(./Title.css);
+@import url(./Lead.css);
+@import url(./Refs.css);
+
 .ad-Canvas {
     position: absolute;
     top: 0;
@@ -16,72 +20,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.ad-Title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    cursor: default;
-}
-    .ad-Title-name {
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: 300;
-        line-height: 1;
-        color: #fff;
-    }
-    .ad-Title-divider {
-        display: none;
-    }
-    .ad-Title-job {
-        margin-top: .5rem;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 4.5rem;
-        font-weight: 800;
-        line-height: 1;
-        color: #fff;
-    }
-
-.ad-Lead {
-    margin: 0;
-    padding: 0;
-    margin-top: 1rem;
-    text-align: center;
-    font-style: italic;
-    font-size: 1.6rem;
-    color: var(--ad-Color-sec);
-}
-
-.ad-Refs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    margin-top: 2.5rem;
-    list-style: none;
-}
-    .ad-Refs-item + .ad-Refs-item {
-        margin-left: 2.5rem;
-    }
-
-.ad-Ref {
-    transition: color .2s;
-    color: #fff;
-}
-.ad-Ref:focus,
-.ad-Ref:hover {
-    color: var(--ad-Color-ter);
-}
-    .ad-Ref-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-        .ad-Ref-icon path {
-            fill: currentColor;
-        }

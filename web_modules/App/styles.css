@@ -1,4 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,300,400italic);
+
 @import url(./config.css);
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
 
 html,
 body {
@@ -11,8 +19,19 @@ html {
 
 body {
     position: relative;
-    padding: 0;
-    margin: 0;
     background: var(--ad-Color-prim);
     font-family: "Open Sans", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    margin: 0;
+    padding: 0;
 }
