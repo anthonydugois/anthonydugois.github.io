@@ -9,25 +9,29 @@ import { defineVariables } from "../variables"
 defineVariables()
 
 if (__PROD__) {
-    webpack(config, (err) => {
-        if (err) {
-            throw err
-        }
+  process.env.NODE_ENV = "production"
 
-        console.log(colors.green("\nBuild successfully completed"))
-    })
+  webpack(config, (err) => {
+    if (err) {
+      throw err
+    }
+
+    console.log(colors.green("\nBuild successfully completed"))
+  })
 } else {
-    server({
-        __OUTPUT_DIR__,
-        __SERVER_PORT__,
-        __SERVER_HOST__,
-    }, (err) => {
-        if (err) {
-            throw err
-        }
+  process.env.NODE_ENV = "development"
 
-        opn(__SERVER_URL__)
+  server({
+    __OUTPUT_DIR__,
+    __SERVER_PORT__,
+    __SERVER_HOST__,
+  }, (err) => {
+    if (err) {
+      throw err
+    }
 
-        console.log(colors.green(`\nServer started at ${__SERVER_URL__}`))
-    })
+    opn(__SERVER_URL__)
+
+    console.log(colors.green(`\nServer started at ${__SERVER_URL__}`))
+  })
 }

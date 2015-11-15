@@ -9,25 +9,25 @@ const rand = (min, max) => min + Math.random() * (max - min)
 const randInt = (min, max) => Math.round(rand(min, max))
 
 const colors = {
-    ambient: 0x000000,
-    global: 0x607D8B,
+  ambient: 0x000000,
+  global: 0x607D8B,
 }
 
 // init the scene
 let WIDTH = window.innerWidth,
-    HEIGHT = window.innerHeight,
-    RATIO = WIDTH / HEIGHT,
-    FIELDVIEW = 60,
-    NEAR = 1,
-    FAR = 1000,
-    MOUSE = new THREE.Vector2()
+  HEIGHT = window.innerHeight,
+  RATIO = WIDTH / HEIGHT,
+  FIELDVIEW = 60,
+  NEAR = 1,
+  FAR = 1000,
+  MOUSE = new THREE.Vector2()
 
 const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR)
 const SCENE = new THREE.Scene()
 const RENDERER = new THREE.WebGLRenderer({
-    alpha: true,
-    antialias: true,
-    canvas: document.querySelector(".js-Canvas"),
+  alpha: true,
+  antialias: true,
+  canvas: document.querySelector(".js-Canvas"),
 })
 
 RENDERER.setSize(WIDTH, HEIGHT)
@@ -37,9 +37,9 @@ CAMERA.lookAt(new THREE.Vector3())
 
 // draw the scene
 const nbBoxes = 100,
-    minSize = 1,
-    maxSize = 10,
-    boxSize = (maxSize - minSize) / nbBoxes
+  minSize = 1,
+  maxSize = 10,
+  boxSize = (maxSize - minSize) / nbBoxes
 
 const rad = 100, a = .02
 
@@ -47,18 +47,18 @@ const boxes = new THREE.Object3D()
 const boxMat = new THREE.MeshLambertMaterial()
 
 for (let i = nbBoxes ; i > 0 ; i--) {
-    const size = minSize + boxSize * i
+  const size = minSize + boxSize * i
 
-    const boxParent = new THREE.Object3D()
-    const boxGeom = new THREE.BoxGeometry(size, size, size)
-    const box = new THREE.Mesh(boxGeom, boxMat)
+  const boxParent = new THREE.Object3D()
+  const boxGeom = new THREE.BoxGeometry(size, size, size)
+  const box = new THREE.Mesh(boxGeom, boxMat)
 
-    boxParent.add(box)
-    box.position.y = randInt(rad - size, rad + size)
-    box.position.z = randInt(-size, size)
+  boxParent.add(box)
+  box.position.y = randInt(rad - size, rad + size)
+  box.position.z = randInt(-size, size)
 
-    boxes.add(boxParent)
-    boxParent.rotation.z = i * a
+  boxes.add(boxParent)
+  boxParent.rotation.z = i * a
 }
 
 const lights = new THREE.Object3D()
@@ -73,50 +73,50 @@ SCENE.add(lights)
 
 // update the scene
 function update() {
-    boxes.children.forEach((box, index, _boxes) => {
-        if (index === 0 || _boxes[index - 1].rotation.z > a) {
-            box.rotation.z += .015
-        }
+  boxes.children.forEach((box, index, _boxes) => {
+    if (index === 0 || _boxes[index - 1].rotation.z > a) {
+      box.rotation.z += .015
+    }
 
-        if (index === 0 || _boxes[index - 1].rotation.x > .005) {
-            box.rotation.x += .005
-        }
+    if (index === 0 || _boxes[index - 1].rotation.x > .005) {
+      box.rotation.x += .005
+    }
 
-        let sign = index % 2 === 0 ? 1 : -1
+    let sign = index % 2 === 0 ? 1 : -1
 
-        box.children[0].rotation.x += sign * rand(.01, .03)
-        box.children[0].rotation.y += sign * rand(.01, .03)
-    })
+    box.children[0].rotation.x += sign * rand(.01, .03)
+    box.children[0].rotation.y += sign * rand(.01, .03)
+  })
 }
 
 window.onmousemove = (e) => {
-    MOUSE.x = (e.clientX / WIDTH) * 2 - 1
-    MOUSE.y = - (e.clientY / HEIGHT) * 2 + 1
+  MOUSE.x = (e.clientX / WIDTH) * 2 - 1
+  MOUSE.y = - (e.clientY / HEIGHT) * 2 + 1
 
-    TweenLite.to(CAMERA.rotation, 1, {
-        x: MOUSE.y * PI / 32,
-        y: - MOUSE.x * PI / 32,
-    })
+  TweenLite.to(CAMERA.rotation, 1, {
+    x: MOUSE.y * PI / 32,
+    y: - MOUSE.x * PI / 32,
+  })
 }
 
 window.onresize = () => {
-    WIDTH = window.innerWidth
-    HEIGHT = window.innerHeight
-    RATIO = WIDTH / HEIGHT
+  WIDTH = window.innerWidth
+  HEIGHT = window.innerHeight
+  RATIO = WIDTH / HEIGHT
 
-    RENDERER.setSize(WIDTH, HEIGHT)
+  RENDERER.setSize(WIDTH, HEIGHT)
 
-    CAMERA.aspect = RATIO
-    CAMERA.updateProjectionMatrix()
+  CAMERA.aspect = RATIO
+  CAMERA.updateProjectionMatrix()
 }
 
 // render the scene
 function render() {
-    update()
-    RENDERER.render(SCENE, CAMERA)
+  update()
+  RENDERER.render(SCENE, CAMERA)
 }
 
 (function loop() {
-    render()
-    requestAnimationFrame(loop)
+  render()
+  requestAnimationFrame(loop)
 })()
