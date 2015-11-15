@@ -1,5 +1,4 @@
 import THREE from "three"
-import TweenLite from "gsap"
 
 import "./styles"
 
@@ -19,8 +18,7 @@ let WIDTH = window.innerWidth,
   RATIO = WIDTH / HEIGHT,
   FIELDVIEW = 60,
   NEAR = 1,
-  FAR = 1000,
-  MOUSE = new THREE.Vector2()
+  FAR = 1000
 
 const CAMERA = new THREE.PerspectiveCamera(FIELDVIEW, RATIO, NEAR, FAR)
 const SCENE = new THREE.Scene()
@@ -41,7 +39,7 @@ const nbBoxes = 100,
   maxSize = 10,
   boxSize = (maxSize - minSize) / nbBoxes
 
-const rad = 100, a = .02
+const rad = 90, a = .02
 
 const boxes = new THREE.Object3D()
 const boxMat = new THREE.MeshLambertMaterial()
@@ -78,24 +76,10 @@ function update() {
       box.rotation.z += .015
     }
 
-    if (index === 0 || _boxes[index - 1].rotation.x > .005) {
-      box.rotation.x += .005
-    }
-
     let sign = index % 2 === 0 ? 1 : -1
 
     box.children[0].rotation.x += sign * rand(.01, .03)
     box.children[0].rotation.y += sign * rand(.01, .03)
-  })
-}
-
-window.onmousemove = (e) => {
-  MOUSE.x = (e.clientX / WIDTH) * 2 - 1
-  MOUSE.y = - (e.clientY / HEIGHT) * 2 + 1
-
-  TweenLite.to(CAMERA.rotation, 1, {
-    x: MOUSE.y * PI / 32,
-    y: - MOUSE.x * PI / 32,
   })
 }
 
