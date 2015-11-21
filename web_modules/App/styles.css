@@ -20,6 +20,7 @@ html {
 body {
   position: relative;
   font-family: "Open Sans", sans-serif;
+  background: var(--ad-Color-prim);
 }
 
 body,

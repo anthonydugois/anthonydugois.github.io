@@ -6,7 +6,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: radial-gradient(circle at center, #fff 25%, #ccc);
+  background: var(--ad-Color-prim);
 }
 
 .ad-Layout {
@@ -21,8 +21,8 @@
 .ad-Lead {
   margin-top: .6rem;
   text-align: center;
-  font-size: 1.25rem;
-  color: #333;
+  font-size: 1.4rem;
+  color: #ccc;
 }
 
 .ad-Title {
@@ -31,26 +31,26 @@
   align-items: center;
   justify-content: center;
 }
-    .ad-Title-name {
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 400;
-      line-height: 1;
-      color: #000;
-    }
-    .ad-Title-divider {
-      display: none;
-    }
-    .ad-Title-job {
-      margin-top: .25rem;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1;
-      color: #000;
-    }
+  .ad-Title-name {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+  }
+  .ad-Title-divider {
+    display: none;
+  }
+  .ad-Title-job {
+    margin-top: .25rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+  }
 
 .ad-Refs {
   display: flex;
@@ -59,16 +59,16 @@
   margin-top: 2rem;
   list-style: none;
 }
-    .ad-Refs-item + .ad-Refs-item {
-      margin-left: 1.5rem;
-    }
+  .ad-Refs-item + .ad-Refs-item {
+    margin-left: 2rem;
+  }
 
 .ad-Ref {
   display: inline-block;
   position: relative;
-  width: 2.6rem;
-  height: 2.6rem;
-  padding: .65rem;
+  width: 3rem;
+  height: 3rem;
+  padding: .8rem;
   transition: color .2s;
   color: #fff;
 }
@@ -81,13 +81,15 @@
     width: 100%;
     height: 100%;
     border-radius: 2px;
-    background: #ccc;
+    border: 1px solid #fff;
     transform: translate(-50%, -50%) rotate(45deg);
-    transition: background .4s;
+    transition: border .2s, transform .6s cubic-bezier(.2, .8, .4, 1.6);
   }
   .ad-Ref:focus::after,
   .ad-Ref:hover::after {
-    background: #000;
+    border-width: 3px;
+    border-color: var(--ad-Color-sec);
+    transform: translate(-50%, -50%) rotateX(180deg);
   }
   .ad-Ref-icon {
     position: relative;
@@ -95,6 +97,6 @@
     width: 100%;
     height: 100%;
   }
-      .ad-Ref-icon path {
-        fill: currentColor;
-      }
+    .ad-Ref-icon path {
+      fill: currentColor;
+    }
