@@ -1,2 +1,6 @@
-node_modules/*
-npm-debug.log
+# node / npm
+node_modules
+*.log
+
+# phenomic build
+dist
