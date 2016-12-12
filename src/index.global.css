@@ -1,5 +1,7 @@
 /* Using global sytles is not recommended, prefer local styles via CSS Modules */
 
+@import url(https://fonts.googleapis.com/css?family=Karla:400,700|Playfair+Display:400,700);
+
 /*
  * box model like it should be
  *
@@ -27,11 +29,12 @@ body {
  */
 html {
   min-height: 100%;
-  background: color(var(--colorPrimary) l(99%));
+  font-size: 16px;
 }
 
 body {
-  color: var(--colorText);
+  background: #fff;
+  color: #000;
   font-size: 1rem;
   line-height: 1.5rem;
 
@@ -80,12 +83,4 @@ a {
   &:hover {
     text-decoration: underline;
   }
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: var(--colorNeutral);
-  opacity: 0.2;
-  margin: 2rem 0;
 }

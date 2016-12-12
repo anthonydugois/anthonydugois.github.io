@@ -1,12 +1,12 @@
 import React from "react"
 
-import LatestPosts from "../../components/LatestPosts"
 import Page from "../Page"
+import Main from "../../components/Main"
 
 const Homepage = (props) => {
   return (
     <Page { ...props }>
-      <LatestPosts />
+      <Main />
     </Page>
   )
 }
