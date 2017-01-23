@@ -1,0 +1,42 @@
+.button {
+  position: relative;
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color(var(--colorPrimary) l(-3%) a(.5));
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Karla', sans-serif;
+  font-size: .8rem;
+  color: #fff;
+  letter-spacing: .1rem;
+  transition: background .2s;
+
+  & + & {
+    margin-left: .5rem;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: color(var(--colorPrimary) l(+35%));
+    transform: scaleX(0);
+    transform-origin: center left;
+    transition: transform .2s;
+  }
+
+  &:hover,
+  &:focus {
+    background: color(var(--colorPrimary) l(-3%));
+    text-decoration: none;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}

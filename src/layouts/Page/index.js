@@ -50,18 +50,15 @@ const Page = (
         title={ metaTitle }
         meta={ meta }
       />
-      <div className={ styles.wrapper + " " + styles.pageContent }>
-        { header }
-        <div className={ styles.body }>
-          {
-            isLoading
-            ? <Loading />
-            : <BodyContainer>{ body }</BodyContainer>
-          }
-        </div>
-        { children }
-        { footer }
+
+      { header }
+      <div className={ styles.body }>
+        { isLoading ?
+          <Loading /> :
+          <BodyContainer>{ body }</BodyContainer> }
       </div>
+      { children }
+      { footer }
     </div>
   )
 }

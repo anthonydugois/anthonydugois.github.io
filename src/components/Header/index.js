@@ -1,7 +1,6 @@
 import React, { PropTypes } from "react"
 import Svg from "react-svg-inline"
 import { Link } from "phenomic"
-
 import logo from "../svg/logo-icon.svg"
 import styles from "./index.css"
 
@@ -12,17 +11,17 @@ const Header = () => (
         <Svg svg={ logo } className={ styles.svg } />
       </Link>
 
-      <nav className={ styles.nav }>
+      {/*<nav className={ styles.nav }>
         <Link to="" className={ styles.link }>
           Projects
         </Link>
         <Link to="" className={ styles.link }>
-          Blog
-        </Link>
-        <Link to="" className={ styles.link }>
           About
         </Link>
-      </nav>
+        <Link to="" className={ styles.link }>
+          Blog
+        </Link>
+      </nav>*/}
     </div>
   </header>
 )

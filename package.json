@@ -109,7 +109,9 @@
     "file-loader": "^0.9.0",
     "history": "^2.0.0",
     "json-loader": "^0.5.2",
+    "mesh-reindex": "^1.0.0",
     "npm-run-all": "^1.7.0",
+    "phenomic": "^0.20.2",
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.4.0",
     "postcss-loader": "^0.13.0",
@@ -122,13 +124,18 @@
     "react-redux": "^4.0.0",
     "react-router": "^2.3.0",
     "react-svg-inline": "^1.1.0",
+    "react-three-renderer": "^3.0.2",
     "react-topbar-progress-indicator": "^1.0.0",
     "redux": "^3.0.0",
     "style-loader": "^0.13.0",
     "stylelint": "^7.2.0",
+    "svg-mesh-3d": "^1.1.0",
+    "three": "^0.83.0",
+    "three-simplicial-complex": "^69.0.6",
+    "triangle-centroid": "^1.0.0",
+    "unindex-mesh": "^2.0.0",
     "warning": "^3.0.0",
     "webpack": "^1.11.0",
-    "whatwg-fetch": "^0.11.0",
-    "phenomic": "^0.19.5"
+    "whatwg-fetch": "^0.11.0"
   }
 }
