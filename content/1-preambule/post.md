@@ -1,0 +1,15 @@
+---
+path: "/writings/preambule"
+date: "2019-07-11"
+lang: "en"
+title: "Préambule"
+description: "This post serves as an introduction to the new version of this personal website, which will gather my informal writings."
+---
+
+These writings will mostly be about theoretical computer science, software engineering, web development, some personal thoughts, and, as a convinced anarchist, a little politics.
+
+I will write more often in English, especially for everything related to computers, and sometimes in French for more personal topics. I apologize in advance for some potential clumsiness related to my written expression of English, which is not my first language.
+
+For the curious, this blog is developed using [GatsbyJS](https://www.gatsbyjs.org/) and the related sources are available on [GitHub](https://github.com/anthonydugois/anthonydugois.github.io).
+
+A.

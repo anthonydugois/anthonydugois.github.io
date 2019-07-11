@@ -9,6 +9,7 @@ function PostTemplate(props) {
   return (
     <>
       <Seo
+        lang={props.data.markdownRemark.frontmatter.lang}
         title={props.data.markdownRemark.frontmatter.title}
         description={props.data.markdownRemark.frontmatter.description}
       />
@@ -34,6 +35,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         date(formatString: "MMMM DD, YYYY")
+        lang
         title
         description
       }
