@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "Anthony Dugois (@a_dugois)",
-    description: "A site description",
+    description:
+      "Software Engineering & Computer Science student at the University of Besançon, France. Now in an internship at UCLouvain, Belgium.",
     author: "@a_dugois"
   },
   plugins: [
