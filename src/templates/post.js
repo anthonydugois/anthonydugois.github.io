@@ -9,19 +9,17 @@ export default function PostTemplate(props) {
 	return (
 		<>
 			<Seo
-				lang={props.data.markdownRemark.frontmatter.lang}
-				title={props.data.markdownRemark.frontmatter.title}
-				description={props.data.markdownRemark.frontmatter.description}
+				lang={props.data.mdx.frontmatter.lang}
+				title={props.data.mdx.frontmatter.title}
+				description={props.data.mdx.frontmatter.description}
 			/>
 			<Layout>
 				<Post
-					title={props.data.markdownRemark.frontmatter.title}
-					date={props.data.markdownRemark.frontmatter.date}
-					description={
-						props.data.markdownRemark.frontmatter.description
-					}
+					title={props.data.mdx.frontmatter.title}
+					date={props.data.mdx.frontmatter.date}
+					description={props.data.mdx.frontmatter.description}
 				>
-					{props.data.markdownRemark.htmlAst}
+					{props.data.mdx.body}
 				</Post>
 			</Layout>
 		</>
@@ -30,8 +28,8 @@ export default function PostTemplate(props) {
 
 export const pageQuery = graphql`
 	query($path: String!) {
-		markdownRemark(frontmatter: { path: { eq: $path } }) {
-			htmlAst
+		mdx(frontmatter: { path: { eq: $path } }) {
+			body
 			frontmatter {
 				path
 				date(formatString: "MMMM DD, YYYY")

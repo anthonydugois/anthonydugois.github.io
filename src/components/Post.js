@@ -1,6 +1,7 @@
 import React from "react";
-import rehype from "rehype-react";
 import styled from "styled-components";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import "katex/dist/katex.min.css";
 
@@ -282,25 +283,22 @@ let MdBlockquote = styled.blockquote`
 	}
 `;
 
-let render = new rehype({
-	createElement: React.createElement,
-	components: {
-		h1: MdH1,
-		h2: MdH2,
-		h3: MdH3,
-		h4: MdH4,
-		h5: MdH5,
-		h6: MdH6,
-		p: MdParagraph,
-		strong: MdStrong,
-		em: MdEmph,
-		a: MdLink,
-		ul: MdUnordered,
-		ol: MdOrdered,
-		li: MdItem,
-		blockquote: MdBlockquote
-	}
-}).Compiler;
+let components = {
+	h1: MdH1,
+	h2: MdH2,
+	h3: MdH3,
+	h4: MdH4,
+	h5: MdH5,
+	h6: MdH6,
+	p: MdParagraph,
+	strong: MdStrong,
+	em: MdEmph,
+	a: MdLink,
+	ul: MdUnordered,
+	ol: MdOrdered,
+	li: MdItem,
+	blockquote: MdBlockquote
+};
 
 export default function Post(props) {
 	return (
@@ -311,7 +309,9 @@ export default function Post(props) {
 			</Head>
 			<Content>
 				<Description>{props.description}</Description>
-				{render(props.children)}
+				<MDXProvider components={components}>
+					<MDXRenderer>{props.children}</MDXRenderer>
+				</MDXProvider>
 			</Content>
 		</Container>
 	);

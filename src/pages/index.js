@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 import PostList from "../components/PostList";
 
 export default function IndexPage(props) {
-	let posts = props.data.allMarkdownRemark.edges.map(edge => ({
+	let posts = props.data.allMdx.edges.map(edge => ({
 		id: edge.node.id,
 		path: edge.node.frontmatter.path,
 		date: edge.node.frontmatter.date,
@@ -25,7 +25,7 @@ export default function IndexPage(props) {
 
 export const pageQuery = graphql`
 	query {
-		allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+		allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
 			edges {
 				node {
 					id

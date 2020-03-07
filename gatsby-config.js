@@ -15,27 +15,14 @@ module.exports = {
 			options: {}
 		},
 		{
+			resolve: "gatsby-plugin-mdx",
+			options: {}
+		},
+		{
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "content",
 				path: `${__dirname}/content`
-			}
-		},
-		{
-			resolve: "gatsby-transformer-remark",
-			options: {
-				plugins: [
-					{
-						resolve: "gatsby-remark-katex",
-						options: {}
-					},
-					{
-						resolve: "gatsby-remark-prismjs",
-						options: {
-							inlineCodeMarker: "@"
-						}
-					}
-				]
 			}
 		}
 	]

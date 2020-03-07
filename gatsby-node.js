@@ -1,11 +1,9 @@
 const path = require("path");
 
 exports.createPages = ({ actions, graphql }) => {
-	let template = path.resolve("src/templates/post.js");
-
 	return graphql(`
 		{
-			allMarkdownRemark(
+			allMdx(
 				sort: { order: DESC, fields: [frontmatter___date] }
 				limit: 1000
 			) {
@@ -23,7 +21,9 @@ exports.createPages = ({ actions, graphql }) => {
 			return Promise.reject(result.errors);
 		}
 
-		result.data.allMarkdownRemark.edges.forEach(edge => {
+		let template = path.resolve("src/templates/post.js");
+
+		result.data.allMdx.edges.forEach(edge => {
 			actions.createPage({
 				path: edge.node.frontmatter.path,
 				component: template,
