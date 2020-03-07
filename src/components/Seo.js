@@ -1,54 +1,55 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
-function Seo(props) {
-  let data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          author
-        }
-      }
-    }
-  `);
+export default function Seo(props) {
+	let data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+					author
+				}
+			}
+		}
+	`);
 
-  let description = props.description
-    ? props.description
-    : data.site.siteMetadata.description;
+	let description = props.description
+		? props.description
+		: data.site.siteMetadata.description;
 
-  return (
-    <Helmet
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-      defaultTitle={data.site.siteMetadata.title}
-    >
-      <html lang={props.lang} />
+	return (
+		<Helmet
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+			defaultTitle={data.site.siteMetadata.title}
+		>
+			<html lang={props.lang} />
 
-      <title>{props.title}</title>
+			<title>{props.title}</title>
 
-      <meta name="description" content={description} />
+			<meta name="description" content={description} />
 
-      <meta name="og:title" content={props.title} />
-      <meta name="og:description" content={description} />
-      <meta name="og:type" content="website" />
+			<meta name="og:title" content={props.title} />
+			<meta name="og:description" content={description} />
+			<meta name="og:type" content="website" />
 
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={data.site.siteMetadata.author} />
-      <meta name="twitter:title" content={props.title} />
-      <meta name="twitter:description" content={description} />
+			<meta name="twitter:card" content="summary" />
+			<meta
+				name="twitter:creator"
+				content={data.site.siteMetadata.author}
+			/>
+			<meta name="twitter:title" content={props.title} />
+			<meta name="twitter:description" content={description} />
 
-      {props.children}
-    </Helmet>
-  );
+			{props.children}
+		</Helmet>
+	);
 }
 
 Seo.defaultProps = {
-  lang: "en",
-  meta: [],
-  title: "",
-  description: ""
+	lang: "en",
+	meta: [],
+	title: "",
+	description: ""
 };
-
-export default Seo;
