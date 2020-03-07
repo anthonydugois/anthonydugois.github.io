@@ -16,7 +16,18 @@ module.exports = {
 		},
 		{
 			resolve: "gatsby-plugin-mdx",
-			options: {}
+			options: {
+				gatsbyRemarkPlugins: [
+					{
+						resolve: "gatsby-remark-katex",
+						options: {}
+					},
+					{
+						resolve: "gatsby-remark-prismjs",
+						options: {}
+					}
+				]
+			}
 		},
 		{
 			resolve: "gatsby-source-filesystem",
