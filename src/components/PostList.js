@@ -1,59 +1,44 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-let List = styled.ul`
+const List = styled.ul`
 	margin: 0;
 	padding: 0;
 	list-style: none;
 `;
 
-let Item = styled.li`
+const Item = styled.li`
 	& + & {
-		padding-top: ${p => p.theme.spacing.medium};
-
-		@media screen and (min-width: ${p => p.theme.width}) {
-			padding-top: ${p => p.theme.spacing.large};
-		}
+		padding-top: ${props => props.theme.space.large};
 	}
 `;
 
-let Date = styled.time`
-	font-family: "Heebo", sans-serif;
-	font-size: 0.75rem;
-	font-weight: 400;
-	color: ${p => p.theme.colors.gray};
-
-	@media screen and (min-width: ${p => p.theme.width}) {
-		font-size: 0.9rem;
-	}
+const Date = styled.time`
+	display: block;
+	padding-bottom: ${props => props.theme.space.small};
+	font-size: ${props => props.theme.fontSizes.small};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	color: ${props => props.theme.colors.black[1]};
 `;
 
-let Title = styled.h2`
+const Title = styled.h2`
 	margin: 0;
-	padding: 0.25rem 0 0;
-	line-height: 1.4;
-	font-family: "Exo 2", sans-serif;
-	font-size: 1.2rem;
-	font-weight: 400;
-	color: ${p => p.theme.colors.black};
-
-	@media screen and (min-width: ${p => p.theme.width}) {
-		padding: 0.5rem 0 0;
-		line-height: 1.45;
-		font-size: 1.45rem;
-	}
+	padding: 0;
 `;
 
-let TitleLink = styled(Link)`
+const TitleLink = styled(Link)`
+	line-height: 1.2;
 	text-decoration: none;
-	color: ${p => p.theme.colors.black};
+	font-size: ${props => props.theme.fontSizes.large};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	color: ${props => props.theme.colors.black[0]};
 	transition: background 0.1s, color.1s;
 
 	&:focus,
 	&:hover {
-		background: ${p => p.theme.colors.black};
-		color: ${p => p.theme.colors.white};
+		background: ${props => props.theme.colors.black[0]};
+		color: ${props => props.theme.colors.white[0]};
 	}
 `;
 

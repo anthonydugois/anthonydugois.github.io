@@ -5,268 +5,280 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import "katex/dist/katex.min.css";
 
-let Container = styled.div`
-	font-size: 1rem;
-
-	@media screen and (min-width: ${p => p.theme.width}) {
-		font-size: 1.1rem;
-	}
+const Container = styled.div`
+	font-size: ${props => props.theme.fontSizes.normal};
 `;
 
-let Head = styled.header``;
+const Header = styled.header``;
 
-let Title = styled.h1`
+const Title = styled.h1`
 	margin: 0;
 	padding: 0;
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 700;
-	font-size: 1.9em;
-	color: ${p => p.theme.colors.black};
+	font-weight: ${props => props.theme.fontWeights.bold};
+	font-size: ${props => props.theme.fontSizes.xlarge};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let Date = styled.time`
+const Date = styled.time`
 	display: block;
-	padding: 1em 0 2em;
-	font-family: "Heebo", sans-serif;
-	font-weight: 400;
-	font-size: 0.9em;
-	color: ${p => p.theme.colors.gray};
+	padding: ${props => props.theme.space.small} 0;
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.small};
+	color: ${props => props.theme.colors.black[1]};
 `;
 
-let Description = styled.p`
-	margin: 0 0 1em;
-	padding: 0;
-	line-height: 1.5em;
-	font-family: "Heebo", sans-serif;
-	font-weight: 400;
-	font-size: 1em;
-	color: ${p => p.theme.colors.black};
+const Description = styled.p`
+	margin: 0;
+	padding: ${props => props.theme.space.small} 0;
+	line-height: 1.6;
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let Content = styled.section`
+const Content = styled.section`
+	margin-top: ${props => props.theme.space.small};
+
 	.katex-display {
-		margin: 2em 0;
-		padding: 0;
-		font-size: 1.1em;
+		margin: 0;
+		padding: ${props => props.theme.space.medium} 0;
+		font-size: ${props => props.theme.fontSizes.normal};
 	}
 
 	code[class*="language-"],
 	pre[class*="language-"] {
-		padding: 0;
 		margin: 0;
+		padding: 0;
 		tab-size: 4;
-		font-family: "Monoid", monospace;
-		font-weight: 400;
+		font-family: ${props => props.theme.fonts.mono};
+		font-weight: ${props => props.theme.fontWeights.regular};
 	}
 
 	pre[class*="language-"] {
 		overflow: auto;
-		padding: 1em;
-		background: ${p => p.theme.colors.black};
-		line-height: 1.8;
-		font-size: 0.75em;
-		color: ${p => p.theme.colors.white};
+		margin: ${props => props.theme.space.medium} 0;
+		padding: ${props => props.theme.space.large};
+		background: #011627;
+		line-height: 1.75;
+		font-size: ${props => props.theme.fontSizes.small};
+		color: ${props => props.theme.colors.white[0]};
 	}
 
 	p > code[class*="language-"] {
-		padding: 0.1em 0.15em;
-		font-size: 0.75em;
-		color: ${p => p.theme.colors.black};
+		font-size: ${props => props.theme.fontSizes.small};
+		color: ${props => props.theme.colors.black[0]};
 	}
 
 	.token.comment,
 	.token.prolog,
-	.token.doctype,
 	.token.cdata {
-		color: slategray;
+		color: rgb(99, 119, 119);
+		font-style: italic;
 	}
 
 	.token.punctuation {
-		color: #999;
+		color: rgb(199, 146, 234);
 	}
 
 	.namespace {
-		opacity: 0.7;
+		color: rgb(178, 204, 214);
 	}
 
-	.token.property,
-	.token.tag,
-	.token.boolean,
-	.token.number,
-	.token.constant,
-	.token.symbol,
 	.token.deleted {
-		color: #905;
+		color: rgba(239, 83, 80, 0.56);
+		font-style: italic;
+	}
+
+	.token.symbol,
+	.token.property {
+		color: rgb(128, 203, 196);
+	}
+
+	.token.tag,
+	.token.operator,
+	.token.keyword {
+		color: rgb(127, 219, 202);
+	}
+
+	.token.boolean {
+		color: rgb(255, 88, 116);
+	}
+
+	.token.number {
+		color: rgb(247, 140, 108);
+	}
+
+	.token.constant,
+	.token.function,
+	.token.builtin,
+	.token.char {
+		color: rgb(130, 170, 255);
 	}
 
 	.token.selector,
-	.token.attr-name,
-	.token.string,
-	.token.char,
-	.token.builtin,
-	.token.inserted {
-		color: #690;
+	.token.doctype {
+		color: rgb(199, 146, 234);
+		font-style: italic;
 	}
 
-	.token.operator,
-	.token.entity,
+	.token.attr-name,
+	.token.inserted {
+		color: rgb(173, 219, 103);
+		font-style: italic;
+	}
+
+	.token.string,
 	.token.url,
+	.token.entity,
 	.language-css .token.string,
 	.style .token.string {
-		color: #a67f59;
-		background: hsla(0, 0%, 100%, 0.5);
+		color: rgb(173, 219, 103);
 	}
 
+	.token.class-name,
 	.token.atrule,
-	.token.attr-value,
-	.token.keyword {
-		font-weight: bold;
-		color: ${p => p.theme.colors.white};
-	}
-
-	.token.function {
-		color: #dd4a68;
+	.token.attr-value {
+		color: rgb(255, 203, 139);
 	}
 
 	.token.regex,
 	.token.important,
 	.token.variable {
-		color: #e90;
+		color: rgb(214, 222, 235);
 	}
 
 	.token.important,
 	.token.bold {
 		font-weight: bold;
 	}
+
 	.token.italic {
 		font-style: italic;
 	}
-
-	.token.entity {
-		cursor: help;
-	}
 `;
 
-let MdH1 = styled.h1`
+const MdH1 = styled.h1`
 	margin: 0;
-	padding: 0;
+	padding: ${props => props.theme.space.large} 0
+		${props => props.theme.space.medium};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 700;
-	font-size: 1.7em;
-	color: ${p => p.theme.colors.black};
+	font-weight: ${props => props.theme.fontWeights.bold};
+	font-size: ${props => props.theme.fontSizes.xlarge};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let MdH2 = styled.h2`
-	margin: 1.5em 0 1em;
-	padding: 0;
+const MdH2 = styled.h2`
+	margin: 0;
+	padding: ${props => props.theme.space.large} 0
+		${props => props.theme.space.medium};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 700;
-	font-size: 1.7em;
-	color: ${p => p.theme.colors.black};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.large};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let MdH3 = styled.h3`
-	margin: 1.5em 0 1em;
-	padding: 0;
+const MdH3 = styled.h3`
+	margin: 0;
+	padding: ${props => props.theme.space.large} 0
+		${props => props.theme.space.medium};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 400;
-	font-size: 1.5em;
-	color: ${p => p.theme.colors.black};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.medium};
+	color: ${props => props.theme.colors.black[1]};
 `;
 
-let MdH4 = styled.h4`
-	margin: 1.5em 0 1em;
-	padding: 0;
+const MdH4 = styled.h4`
+	margin: 0;
+	padding: ${props => props.theme.space.medium} 0
+		${props => props.theme.space.small};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 700;
-	font-size: 1.2em;
-	color: ${p => p.theme.colors.black};
+	font-weight: ${props => props.theme.fontWeights.bold};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let MdH5 = styled.h5`
-	margin: 1.5em 0 1em;
-	padding: 0;
+const MdH5 = styled.h5`
+	margin: 0;
+	padding: ${props => props.theme.space.medium} 0
+		${props => props.theme.space.small};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 700;
-	font-size: 1em;
-	color: ${p => p.theme.colors.gray};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let MdH6 = styled.h6`
-	margin: 1.5em 0 1em;
-	padding: 0;
+const MdH6 = styled.h6`
+	margin: 0;
+	padding: ${props => props.theme.space.medium} 0
+		${props => props.theme.space.small};
 	line-height: 1.2;
-	font-family: "Exo 2", sans-serif;
-	font-weight: 400;
-	font-size: 0.9em;
-	color: ${p => p.theme.colors.gray};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[1]};
 `;
 
-let MdParagraph = styled.p`
-	margin: 1em 0;
-	padding: 0;
-	line-height: 1.5em;
-	font-family: "Heebo", sans-serif;
-	font-weight: 400;
-	font-size: 1em;
-	color: ${p => p.theme.colors.black};
+const MdParagraph = styled.p`
+	margin: 0;
+	padding: ${props => props.theme.space.small} 0;
+	line-height: 1.6;
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[0]};
 `;
 
-let MdStrong = styled.strong`
-	font-weight: 500;
+const MdStrong = styled.strong`
+	font-weight: ${props => props.theme.fontWeights.bold};
 `;
 
-let MdEmph = styled.em`
+const MdEmph = styled.em`
 	font-style: italic;
 `;
 
-let MdLink = styled.a`
+const MdLink = styled.a`
 	text-decoration: underline;
-	color: ${p => p.theme.colors.gray};
+	color: ${props => props.theme.colors.black[0]};
 	transition: color 0.1s;
 
 	&:focus,
 	&:hover {
-		color: ${p => p.theme.colors.black};
+		text-decoration: none;
+		color: ${props => props.theme.colors.black[1]};
 	}
 `;
 
-let MdUnordered = styled.ul`
+const MdUnordered = styled.ul`
 	margin: 0;
-	padding: 0 2.5em;
+	padding: ${props => props.theme.space.small}
+		${props => props.theme.space.large};
 `;
 
-let MdOrdered = styled.ol`
+const MdOrdered = styled.ol`
 	margin: 0;
-	padding: 0 2.5em;
+	padding: ${props => props.theme.space.small}
+		${props => props.theme.space.large};
 `;
 
-let MdItem = styled.li`
-	line-height: 1.4;
-	font-family: "Heebo", sans-serif;
-	font-weight: 400;
-	font-size: 1em;
-	color: ${p => p.theme.colors.black};
+const MdItem = styled.li`
+	line-height: 1.6;
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+	color: ${props => props.theme.colors.black[0]};
 
 	& + & {
-		margin: 0.25em 0 0;
+		margin-top: ${props => props.theme.space.small};
 	}
 `;
 
-let MdBlockquote = styled.blockquote`
-	margin: 1em 0;
-	padding: 0;
+const MdBlockquote = styled.blockquote`
+	margin: 0;
+	padding: ${props => props.theme.space.small} 0;
 
 	p {
 		margin: 0;
-		font-size: 1.1em;
-		color: ${p => p.theme.colors.gray};
+		padding: 0;
+		font-size: ${props => props.theme.fontSizes.normal};
+		color: ${props => props.theme.colors.black[0]};
 
 		&::before {
 			content: "« ";
@@ -278,9 +290,48 @@ let MdBlockquote = styled.blockquote`
 
 		&::before,
 		&::after {
-			font-size: 1.1em;
+			font-size: ${props => props.theme.fontSizes.normal};
 		}
 	}
+`;
+
+const MdHr = styled.hr`
+	margin: ${props => props.theme.space.large} 0;
+	border: none;
+	height: 1px;
+	background: ${props => props.theme.colors.black[2]};
+`;
+
+const MdTable = styled.table`
+	max-width: 100%;
+	margin: ${props => props.theme.space.small} auto;
+	border-collapse: collapse;
+`;
+
+const MdTableRow = styled.tr``;
+
+const MdTableHead = styled.th`
+	padding: ${props => props.theme.space.small};
+	border-top: 2px solid;
+	border-color: ${props => props.theme.colors.black[1]};
+	font-weight: ${props => props.theme.fontWeights.bold};
+	font-size: ${props => props.theme.fontSizes.normal};
+`;
+
+const MdTableCell = styled.td`
+	padding: ${props => props.theme.space.small}
+		${props => props.theme.space.medium};
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: ${props => props.theme.colors.black[1]};
+	font-weight: ${props => props.theme.fontWeights.regular};
+	font-size: ${props => props.theme.fontSizes.normal};
+`;
+
+const MdImage = styled.img`
+	display: block;
+	max-width: 100%;
+	margin: ${props => props.theme.space.small} auto;
 `;
 
 let components = {
@@ -297,16 +348,22 @@ let components = {
 	ul: MdUnordered,
 	ol: MdOrdered,
 	li: MdItem,
-	blockquote: MdBlockquote
+	blockquote: MdBlockquote,
+	table: MdTable,
+	tr: MdTableRow,
+	th: MdTableHead,
+	td: MdTableCell,
+	hr: MdHr,
+	img: MdImage
 };
 
 export default function Post(props) {
 	return (
 		<Container>
-			<Head>
+			<Header>
 				<Title>{props.title}</Title>
 				<Date>{props.date}</Date>
-			</Head>
+			</Header>
 			<Content>
 				<Description>{props.description}</Description>
 				<MDXProvider components={components}>
