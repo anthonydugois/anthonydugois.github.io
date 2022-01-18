@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-slate-50;
+    @apply border-t-4 border-slate-900;
+    @apply text-slate-900;
+}

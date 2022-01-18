@@ -1,0 +1,64 @@
+{
+	"bib": [
+		{
+			"type": "thesis",
+			"title": "Online Scheduling in Replicated Storage Systems",
+			"authors": "Dugois, A.",
+			"year": 2024,
+			"book": null,
+			"pages": null,
+			"file": "",
+			"new": true
+		},
+		{
+			"type": "journal",
+			"title": "A Markov Chain Monte Carlo Approach to Cost Matrix Generation for Scheduling Performance Evaluation",
+			"authors": "Canon, L.-C., Dugois, A., El Sayah, M., & Héam, P.-C.",
+			"year": 2022,
+			"book": "Future Generation Computer Systems",
+			"pages": "136-150",
+			"file": "",
+			"new": true
+		},
+		{
+			"type": "journal",
+			"title": "Taming Tail Latency in Key-Value Stores: a Scheduling Perspective",
+			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
+			"year": 2022,
+			"book": "IEEE Transactions on Parallel and Distributed Systems",
+			"pages": "136-150",
+			"file": "",
+			"new": true
+		},
+		{
+			"type": "conference",
+			"title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+			"authors": "Canon, L.-C., Dugois, A., & Marchal, L.",
+			"year": 2022,
+			"book": "IPDPS",
+			"pages": "136-150",
+			"file": "",
+			"new": false
+		},
+		{
+			"type": "conference",
+			"title": "Taming Tail Latency in Key-Value Stores: a Scheduling Perspective",
+			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
+			"year": 2021,
+			"book": "Euro-Par 2021: Parallel Processing",
+			"pages": "136-150",
+			"file": "",
+			"new": false
+		},
+		{
+			"type": "report",
+			"title": "Taming Tail Latency in Key-Value Stores: a Scheduling Perspective (extended version)",
+			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
+			"year": 2021,
+			"book": null,
+			"pages": null,
+			"file": "",
+			"new": false
+		}
+	]
+}
