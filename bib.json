@@ -8,7 +8,8 @@
 			"book": null,
 			"pages": null,
 			"file": "",
-			"new": true
+			"new": true,
+			"private": true
 		},
 		{
 			"type": "journal",
@@ -18,7 +19,8 @@
 			"book": "Future Generation Computer Systems",
 			"pages": "136-150",
 			"file": "",
-			"new": true
+			"new": true,
+			"private": true
 		},
 		{
 			"type": "journal",
@@ -28,27 +30,41 @@
 			"book": "IEEE Transactions on Parallel and Distributed Systems",
 			"pages": "136-150",
 			"file": "",
-			"new": true
+			"new": true,
+			"private": true
 		},
 		{
 			"type": "conference",
 			"title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
 			"authors": "Canon, L.-C., Dugois, A., & Marchal, L.",
 			"year": 2022,
-			"book": "IPDPS",
+			"book": "IPDPS 2022",
 			"pages": "136-150",
-			"file": "",
-			"new": false
+			"file": "conference_canon2022.pdf",
+			"new": false,
+			"private": false
+		},
+		{
+			"type": "report",
+			"title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets (extended version)",
+			"authors": "Canon, L.-C., Dugois, A., & Marchal, L.",
+			"year": 2022,
+			"book": null,
+			"pages": null,
+			"file": "report_canon2022.pdf",
+			"new": false,
+			"private": false
 		},
 		{
 			"type": "conference",
 			"title": "Taming Tail Latency in Key-Value Stores: a Scheduling Perspective",
 			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
 			"year": 2021,
-			"book": "Euro-Par 2021: Parallel Processing",
+			"book": "Euro-Par 2021",
 			"pages": "136-150",
-			"file": "",
-			"new": false
+			"file": "conference_benmokhtar2021.pdf",
+			"new": false,
+			"private": false
 		},
 		{
 			"type": "report",
@@ -57,8 +73,9 @@
 			"year": 2021,
 			"book": null,
 			"pages": null,
-			"file": "",
-			"new": false
+			"file": "report_benmokhtar2021.pdf",
+			"new": false,
+			"private": false
 		}
 	]
 }

@@ -22,7 +22,7 @@ export default function BibItem({ title, authors, year, book, pages, file }: Pro
 			{file != null && (
 				<>
 					{" "}
-					<a href={file} className="text-blue-600">PDF</a>.
+					<a href={`/papers/${file}`} className="text-indigo-600 hover:text-indigo-800 focus:text-indigo-800">PDF</a>.
 				</>
 			)}
 		</>

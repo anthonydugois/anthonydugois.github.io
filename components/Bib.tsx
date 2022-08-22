@@ -45,31 +45,34 @@ function BadgeType({ type }: BadgeTypeProps) {
 export default function Bib() {
 	return (
 		<ul>
-			{bib.bib.map((entry, index) => (
-				<li
-					key={index}
-					className="flex items-start py-3 border-b border-slate-200"
-				>
-					<div className="flex-1 pr-4 text-sm text-justify">
-						{entry.new && (
-							<span className="mr-2 font-semibold text-rose-500">
-								NEW
-							</span>
-						)}
-						<BibItem
-							title={entry.title}
-							authors={entry.authors}
-							year={entry.year}
-							book={entry.book}
-							pages={entry.pages}
-							file={entry.file}
-						/>
-					</div>
-					<div className="w-24">
-						<BadgeType type={entry.type} />
-					</div>
-				</li>
-			))}
+			{bib.bib.map(
+				(entry, index) =>
+					!entry.private && (
+						<li
+							key={index}
+							className="flex items-start py-3 border-b border-slate-200"
+						>
+							<div className="flex-1 pr-4 text-sm text-justify">
+								{entry.new && (
+									<span className="mr-2 font-semibold text-rose-500">
+										NEW
+									</span>
+								)}
+								<BibItem
+									title={entry.title}
+									authors={entry.authors}
+									year={entry.year}
+									book={entry.book}
+									pages={entry.pages}
+									file={entry.file}
+								/>
+							</div>
+							<div className="w-24 hidden md:block">
+								<BadgeType type={entry.type} />
+							</div>
+						</li>
+					)
+			)}
 		</ul>
 	);
 }

@@ -6,6 +6,5 @@
 
 body {
     @apply bg-slate-50;
-    @apply border-t-4 border-slate-900;
     @apply text-slate-900;
 }
