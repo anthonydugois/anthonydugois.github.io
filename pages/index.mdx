@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import Container from "../components/Container";
 import Bib from "../components/Bib";
 
@@ -5,6 +7,11 @@ import Contact from "../components/contact.mdx";
 import Lead from "../components/lead.mdx";
 import Research from "../components/research.mdx";
 import Teaching from "../components/teaching.mdx";
+
+<Head>
+	<title>Anthony Dugois — PhD Candidate in Computer Science</title>
+	<meta name="description" content="Personal website of Anthony Dugois." />
+</Head>
 
 <section className="pt-12 md:pt-44 pb-6 md:pb-12">
 	<Container>
@@ -35,9 +42,9 @@ import Teaching from "../components/teaching.mdx";
 	</Container>
 </section>
 
-<section>
+<section className="pb-6 md:pb-12">
 	<Container>
-		<div className="py-2 text-sm text-center italic bg-amber-50 text-amber-900">
+		<div className="py-3 rounded-md text-sm text-center italic bg-slate-100 text-slate-900">
 			<Contact components={{
 				a: (props) => (
 					<a href={props.href} className="underline underline-offset-2">
@@ -77,47 +84,53 @@ import Teaching from "../components/teaching.mdx";
 					<tr className="border-t-2 border-b border-slate-900">
 						<th className="py-1 pr-2 w-auto">Year</th>
 						<th className="py-1 px-2 w-auto">Topic</th>
-						<th className="py-1 px-2 w-auto">Type (∗)</th>
-						<th className="py-1 px-2 w-auto">Level (∗∗)</th>
+						<th className="py-1 px-2 w-auto">Type</th>
+						<th className="py-1 px-2 w-auto">Level</th>
 						<th className="py-1 pl-2 w-auto">Location</th>
 					</tr>
 				</thead>
 				<tbody className="text-left font-normal text-sm align-top">
 					<tr>
-						<td rowSpan={2} className="pt-1 pr-2">2021-2022</td>
-						<td className="pt-1 px-2">Parallel and Distributed Algorithms & Programs (en)</td>
-						<td className="pt-1 px-2">TD/TP</td>
-						<td className="pt-1 px-2">M1</td>
-						<td className="pt-1 pl-2">ENS Lyon</td>
+						<td rowSpan={2} className="pt-1 pr-2">2022-2023</td>
+						<td className="pt-1 px-2">Bases de la Programmation (fr)</td>
+						<td className="pt-1 px-2"><abbr title="Travaux Dirigés (Tutorials)">TD</abbr>/<abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="pt-1 px-2"><abbr title="Licence 1 (Bachelor's degree)">L1</abbr></td>
+						<td className="pt-1 pl-2"><abbr title="Université de Franche-Comté">UFC</abbr></td>
 					</tr>
 					<tr className="border-b border-slate-900">
-						<td className="py-1 px-2">Circuits Logiques et Réseaux (fr)</td>
-						<td className="py-1 px-2">TD/TP</td>
-						<td className="py-1 px-2">L3</td>
-						<td className="py-1 pl-2">ENS Lyon</td>
+						<td className="py-1 px-2">Réseaux (fr)</td>
+						<td className="py-1 px-2"><abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="py-1 px-2"><abbr title="Master 1 (Master's degree)">M1</abbr></td>
+						<td className="py-1 pl-2"><abbr title="Université de Franche-Comté">UFC</abbr></td>
+					</tr>
+					<tr>
+						<td rowSpan={2} className="pt-1 pr-2">2021-2022</td>
+						<td className="pt-1 px-2">Circuits Logiques et Réseaux (fr)</td>
+						<td className="pt-1 px-2"><abbr title="Travaux Dirigés (Tutorials)">TD</abbr>/<abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="pt-1 px-2"><abbr title="Licence 3 (Bachelor's degree)">L3</abbr></td>
+						<td className="pt-1 pl-2"><abbr title="École Normale Supérieure de Lyon">ENSL</abbr></td>
+					</tr>
+					<tr className="border-b border-slate-900">
+						<td className="py-1 px-2">Parallel and Distributed Algorithms & Programs (en)</td>
+						<td className="py-1 px-2"><abbr title="Travaux Dirigés (Tutorials)">TD</abbr>/<abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="py-1 px-2"><abbr title="Master 1 (Master's degree)">M1</abbr></td>
+						<td className="py-1 pl-2"><abbr title="École Normale Supérieure de Lyon">ENSL</abbr></td>
 					</tr>
 					<tr>
 						<td rowSpan={2} className="pt-1 pr-2">2020-2021</td>
-						<td className="pt-1 px-2">Integrated Project (en)</td>
-						<td className="pt-1 px-2">TD/TP</td>
-						<td className="pt-1 px-2">M1</td>
-						<td className="pt-1 pl-2">ENS Lyon</td>
+						<td className="pt-1 px-2">Architecture, Système et Réseaux (fr)</td>
+						<td className="pt-1 px-2"><abbr title="Travaux Dirigés (Tutorials)">TD</abbr>/<abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="pt-1 px-2"><abbr title="Licence 3 (Bachelor's degree)">L3</abbr></td>
+						<td className="pt-1 pl-2"><abbr title="École Normale Supérieure de Lyon">ENSL</abbr></td>
 					</tr>
 					<tr className="border-b-2 border-slate-900">
-						<td className="py-1 px-2">Architecture, Système et Réseaux (fr)</td>
-						<td className="py-1 px-2">TD/TP</td>
-						<td className="py-1 px-2">L3</td>
-						<td className="py-1 pl-2">ENS Lyon</td>
+						<td className="py-1 px-2">Integrated Project (en)</td>
+						<td className="py-1 px-2"><abbr title="Travaux Dirigés (Tutorials)">TD</abbr>/<abbr title="Travaux Pratiques (Practical Work)">TP</abbr></td>
+						<td className="py-1 px-2"><abbr title="Master 1 (Master's degree)">M1</abbr></td>
+						<td className="py-1 pl-2"><abbr title="École Normale Supérieure de Lyon">ENSL</abbr></td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<div className="text-xs font-normal italic text-slate-600 leading-relaxed mt-4">
-			(∗) TD = Travaux Dirigés (Tutorials), TP = Travaux Pratiques
-			(Practical Work)
-		</div>
-		<div className="text-xs font-normal italic text-slate-600 leading-relaxed">
-			(∗∗) M1 = Master 1, L3 = Licence 3 (Bachelor's degree)
 		</div>
 	</Container>
 </section>
