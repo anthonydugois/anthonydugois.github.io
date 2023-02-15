@@ -53,11 +53,6 @@ export default function Bib() {
 							className="flex items-start py-3 border-b border-slate-200"
 						>
 							<div className="flex-1 pr-4 text-sm text-justify">
-								{entry.new && (
-									<span className="mr-2 font-semibold text-rose-500">
-										NEW
-									</span>
-								)}
 								<BibItem
 									title={entry.title}
 									authors={entry.authors}
@@ -65,6 +60,7 @@ export default function Bib() {
 									book={entry.book}
 									pages={entry.pages}
 									file={entry.file}
+									status={entry.status}
 								/>
 							</div>
 							<div className="w-24 hidden md:block">

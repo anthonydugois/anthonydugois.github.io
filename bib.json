@@ -8,7 +8,7 @@
 			"book": null,
 			"pages": null,
 			"file": "",
-			"new": true,
+			"status": "new",
 			"private": true
 		},
 		{
@@ -19,7 +19,7 @@
 			"book": "Future Generation Computer Systems",
 			"pages": "136-150",
 			"file": "",
-			"new": true,
+			"status": "new",
 			"private": true
 		},
 		{
@@ -30,19 +30,19 @@
 			"book": "CCGRID 2023",
 			"pages": "",
 			"file": "",
-			"new": true,
+			"status": "new",
 			"private": true
 		},
 		{
 			"type": "journal",
-			"title": "A Scheduling Framework for Distributed Key-Value Stores and Application to Tail Latency Minimization",
+			"title": "A Scheduling Framework for Distributed Key-Value Stores and its Application to Tail Latency Minimization",
 			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
 			"year": 2023,
 			"book": "Journal of Scheduling",
 			"pages": "",
 			"file": "",
-			"new": true,
-			"private": true
+			"status": "review",
+			"private": false
 		},
 		{
 			"type": "conference",
@@ -52,7 +52,7 @@
 			"book": "IPDPS 2022",
 			"pages": "136-150",
 			"file": "conference_canon2022.pdf",
-			"new": false,
+			"status": "published",
 			"private": false
 		},
 		{
@@ -63,7 +63,7 @@
 			"book": null,
 			"pages": null,
 			"file": "report_canon2022.pdf",
-			"new": false,
+			"status": "published",
 			"private": false
 		},
 		{
@@ -74,7 +74,7 @@
 			"book": "Euro-Par 2021",
 			"pages": "136-150",
 			"file": "conference_benmokhtar2021.pdf",
-			"new": false,
+			"status": "published",
 			"private": false
 		},
 		{
@@ -85,7 +85,7 @@
 			"book": null,
 			"pages": null,
 			"file": "report_benmokhtar2021.pdf",
-			"new": false,
+			"status": "published",
 			"private": false
 		}
 	]
