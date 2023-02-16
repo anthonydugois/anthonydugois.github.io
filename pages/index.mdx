@@ -2,12 +2,14 @@ import Head from "next/head";
 
 import Container from "../components/Container";
 import Bib from "../components/Bib";
+import Strava from "../components/Strava";
 
 import Contact from "../components/contact.mdx";
 import Lead from "../components/lead.mdx";
 import Links from "../components/links.mdx";
 import Research from "../components/research.mdx";
 import Teaching from "../components/teaching.mdx";
+import Interests from "../components/interests.mdx";
 import Foot from "../components/foot.mdx";
 
 <Head>
@@ -144,6 +146,29 @@ import Foot from "../components/foot.mdx";
 				</tr>
 				</tbody>
 			</table>
+		</div>
+	</Container>
+</section>
+
+<section className="py-6 md:py-12">
+	<Container>
+		<h2 className="text-2xl md:text-3xl font-semibold mb-2">Interests</h2>
+		<div className="text-base md:text-lg md:text-justify md:leading-relaxed">
+			<Interests
+				components={{
+					p: (props) => <p className="py-1">{props.children}</p>,
+					a: (props) => (
+						<a
+							href={props.href}
+							className="text-indigo-600 hover:text-indigo-800 focus:text-indigo-800"
+						>
+							{props.children}
+						</a>
+					),
+				}} />
+		</div>
+		<div className="mt-6">
+			<Strava label="See my last runs!" />
 		</div>
 	</Container>
 </section>
