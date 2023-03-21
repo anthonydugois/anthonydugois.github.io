@@ -4,10 +4,8 @@ module.exports = {
 		"./components/**/*.{js,ts,md,jsx,tsx,mdx}",
 	],
 	theme: {
-		extend: {
-			fontFamily: {
-				sans: ["'IBM Plex Sans'", "sans-serif"],
-			},
+		fontFamily: {
+			sans: ["Inter", "Roboto", "'Helvetica Neue'", "'Arial Nova'", "'Nimbus Sans'", "Arial", "sans-serif"],
 		},
 	},
 	plugins: []
