@@ -6,11 +6,13 @@ import { Section, SectionTitle2, SectionTitle3, SectionContent } from "../compon
 import Container from "../components/Container";
 import References from "../components/References";
 import Teaching from "../components/Teaching";
+import { Softwares, Software } from "../components/Softwares";
 import Strava from "../components/Strava";
 
 import LeadContent from "../content/lead.mdx";
 import ResearchContent from "../content/research.mdx";
 import TeachingContent from "../content/teaching.mdx";
+import SoftwareContent from "../content/software.mdx";
 import InterestsContent from "../content/interests.mdx";
 import FootContent from "../content/foot.mdx";
 
@@ -24,7 +26,7 @@ import FootContent from "../content/foot.mdx";
 		<Header
 			title="Anthony Dugois"
 			subtitle="PhD Candidate in Computer Science"
-			hint="PS: I am looking for a postdoc!"
+			hint="Looking for a postdoc position!"
 		/>
 	</header>
 	<main className="lg:pl-72">
@@ -35,7 +37,7 @@ import FootContent from "../content/foot.mdx";
 				</SectionContent>
 			</Container>
 		</Section>
-		<Section className="mt-20">
+		<Section className="mt-24">
 			<Container>
 				<SectionTitle2 className="mb-4">Research</SectionTitle2>
 				<SectionContent>
@@ -48,18 +50,78 @@ import FootContent from "../content/foot.mdx";
 				<References />
 			</Container>
 		</Section>
-		<Section className="mt-20">
+		<Section className="mt-24">
 			<Container>
 				<SectionTitle2 className="mb-4">Teaching</SectionTitle2>
 				<SectionContent>
 					<TeachingContent />
 				</SectionContent>
-				<div className="mt-6 overflow-auto">
+				<div className="mt-8 overflow-auto">
 					<Teaching />
 				</div>
 			</Container>
 		</Section>
-		<Section className="mt-20">
+		<Section className="mt-24">
+			<Container>
+				<SectionTitle2 className="mb-4">Software</SectionTitle2>
+				<SectionContent>
+					<SoftwareContent />
+				</SectionContent>
+				<div className="mt-8">
+					<Softwares>
+						<Software
+							label={(
+								<>
+									<a href="https://github.com/anthonydugois/apache-cassandra-se">Hector</a>
+								</>
+							)}
+							description={(
+								<>
+									A framework built on top of Apache Cassandra to design, implement and evaluate scheduling algorithms in an industry-standard system.
+								</>
+							)}
+						/>
+						<Software
+							label={(
+								<>
+									<a href="https://github.com/anthonydugois/hector-benchmarking">Hector Benchmarking</a>
+								</>
+							)}
+							description={(
+								<>
+									Experiments performed in the ICPP paper entitled Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores.
+								</>
+							)}
+						/>
+						<Software
+							label={(
+								<>
+									<a href="https://doi.org/10.6084/m9.figshare.19123139.v1">Load Experiments</a>
+								</>
+							)}
+							description={(
+								<>
+									Experiments performed in the IPDPS paper entitled Bounding the Flow Time in Online Scheduling with Structured Processing Sets.
+								</>
+							)}
+						/>
+						<Software
+							label={(
+								<>
+									<a href="https://doi.org/10.6084/m9.figshare.21750605.v1">KVS Simulator</a>
+								</>
+							)}
+							description={(
+								<>
+									Experiments performed in the Euro-Par paper entitled Taming Tail Latency in Key-Value Stores: a Scheduling Perspective.
+								</>
+							)}
+						/>
+					</Softwares>
+				</div>
+			</Container>
+		</Section>
+		<Section className="mt-24">
 			<Container>
 				<SectionTitle2 className="mb-4">Interests</SectionTitle2>
 				<SectionContent>

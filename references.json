@@ -24,14 +24,25 @@
 		},
 		{
 			"type": "conference",
-			"title": "Hector: A Framework to Implement and Evaluate Scheduling Strategies in Key-Value Stores",
+			"title": "Low-Cost Algorithms for the Restricted Assignment Problem on Intervals of Machines",
+			"authors": "Canon, L.-C., Dugois, A., & Marchal, L.",
+			"year": 2023,
+			"book": "ICPP 2023",
+			"pages": "",
+			"file": "conference_canon2023b.pdf",
+			"status": "review",
+			"private": false
+		},
+		{
+			"type": "conference",
+			"title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
 			"authors": "Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
 			"year": 2023,
-			"book": "CCGRID 2023",
+			"book": "ICPP 2023",
 			"pages": "",
-			"file": "",
-			"status": "new",
-			"private": true
+			"file": "conference_canon2023a.pdf",
+			"status": "review",
+			"private": false
 		},
 		{
 			"type": "journal",

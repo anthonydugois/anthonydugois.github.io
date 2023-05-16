@@ -13,7 +13,7 @@ export function HeaderSubtitle({ children }: { children: React.ReactChildren }) 
 
 export function Hint({ children }: { children: React.ReactChildren }) {
 	return (
-		<div className="px-4 py-2 rounded-md bg-gradient-to-r from-blue-100 to-zinc-50 text-blue-900 text-sm font-medium">
+		<div className="px-4 py-2 rounded-md bg-red-50 border-2 border-red-500 text-red-700 text-center text-sm font-medium">
 			{children}
 		</div>
 	);
@@ -54,7 +54,7 @@ export function Header({
 					}}
 				/>
 			</div>
-			<div className="mt-4">
+			<div className="mt-6">
 				<Hint>{hint}</Hint>
 			</div>
 		</>

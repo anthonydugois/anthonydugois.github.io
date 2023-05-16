@@ -7,8 +7,18 @@ body {
 	@apply text-zinc-900;
 }
 
+.tile a {
+	@apply text-zinc-900;
+	@apply underline-offset-4;
+}
+
+.tile a:hover,
+.tile a:focus {
+	@apply underline;
+}
+
 .section-content p + p {
-	@apply mt-1;
+	@apply mt-2;
 }
 
 .section-content p em {

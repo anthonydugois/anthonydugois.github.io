@@ -67,7 +67,7 @@ export default function Reference({
 					<Book book={book} pages={status != "published" ? null : pages} />.
 				</>
 			)}
-			{status === "published" && file != null && (
+			{(status === "published" || status === "review") && file != null && file.length > 0 && (
 				<>
 					{" "}
 					<File file={file} />.
