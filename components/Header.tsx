@@ -54,9 +54,11 @@ export function Header({
 					}}
 				/>
 			</div>
-			<div className="mt-6">
-				<Hint>{hint}</Hint>
-			</div>
+			{hint && (
+				<div className="mt-6">
+					<Hint>{hint}</Hint>
+				</div>
+			)}
 		</>
 	);
 }

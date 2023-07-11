@@ -2,19 +2,22 @@ import * as React from "react";
 
 export function Status({ status }: { status: string | null }) {
 	let label = null;
+	let colors = "bg-amber-50 text-amber-900";
 
 	switch (status) {
 		case "new":
 			label = "New";
+			colors = "bg-emerald-50 text-emerald-900";
 			break;
 		case "review":
 			label = "Under review";
+			colors = "bg-amber-50 text-amber-900";
 			break;
 	}
 
 	if (label) {
 		return (
-			<span className="mr-4 bg-amber-50 font-medium text-amber-900 text-xs uppercase">
+			<span className={`mr-4 font-medium text-xs uppercase ${colors}`}>
 				{label}
 			</span>
 		);
@@ -67,12 +70,14 @@ export default function Reference({
 					<Book book={book} pages={status != "published" ? null : pages} />.
 				</>
 			)}
-			{(status === "published" || status === "review") && file != null && file.length > 0 && (
-				<>
-					{" "}
-					<File file={file} />.
-				</>
-			)}
+			{(status === "published" || status === "new" || status === "review") &&
+				file != null &&
+				file.length > 0 && (
+					<>
+						{" "}
+						<File file={file} />.
+					</>
+				)}
 		</>
 	);
 }
