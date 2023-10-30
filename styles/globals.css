@@ -35,3 +35,11 @@ body {
 	@apply text-blue-600;
 	@apply underline;
 }
+
+.ref {
+	@apply bg-white;
+}
+
+.ref:nth-child(odd) {
+	@apply bg-zinc-100;
+}

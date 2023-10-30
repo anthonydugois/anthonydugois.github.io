@@ -17,7 +17,7 @@ export function Status({ status }: { status: string | null }) {
 
 	if (label) {
 		return (
-			<span className={`mr-4 font-medium text-xs uppercase ${colors}`}>
+			<span className={`mr-2 font-medium text-xs uppercase ${colors}`}>
 				{label}
 			</span>
 		);

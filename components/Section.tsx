@@ -17,7 +17,7 @@ export function SectionTitle2({
 	children: React.ReactChildren;
 	className?: string;
 }) {
-	return <h2 className={`text-xl font-bold ${className ?? ""}`}>{children}</h2>;
+	return <h2 className={`text-2xl font-bold ${className ?? ""}`}>{children}</h2>;
 }
 
 export function SectionTitle3({
@@ -27,7 +27,7 @@ export function SectionTitle3({
 	children: React.ReactChildren;
 	className?: string;
 }) {
-	return <h3 className={`text-lg font-medium ${className ?? ""}`}>{children}</h3>;
+	return <h3 className={`text-xl font-medium ${className ?? ""}`}>{children}</h3>;
 }
 
 export function SectionContent({
@@ -38,7 +38,7 @@ export function SectionContent({
 	className?: string;
 }) {
 	return (
-		<div className={`text-justify text-lg font-normal text-zinc-800 ${className ?? ""}`}>
+		<div className={`text-justify text-xl leading-relaxed font-normal text-zinc-800 ${className ?? ""}`}>
 			<div className="section-content">{children}</div>
 		</div>
 	);

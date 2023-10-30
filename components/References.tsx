@@ -15,7 +15,7 @@ export function ReferenceType({ type }: { type: string }) {
 			label = "Journal";
 			break;
 		case "conference":
-			label = "Conf.";
+			label = "Conference";
 			break;
 		case "report":
 			label = "Report";
@@ -23,7 +23,7 @@ export function ReferenceType({ type }: { type: string }) {
 	}
 
 	if (label) {
-		return <div className="font-bold text-right text-xs text-zinc-900">{label}</div>;
+		return <div className="font-bold text-right text-sm text-zinc-900">{label}</div>;
 	}
 
 	return null;
@@ -35,11 +35,11 @@ export default function References() {
 			{references.entries.map(
 				(entry, index) =>
 					!entry.private && (
-						<li key={index} className="flex items-center py-4 border-b border-zinc-200">
-							<div className="w-16 hidden md:block">
+						<li key={index} className="ref flex items-center my-2 py-4 px-6 rounded-lg">
+							<div className="w-20 hidden md:block">
 								<ReferenceType type={entry.type} />
 							</div>
-							<div className="flex-1 md:pl-6 text-justify text-sm text-zinc-700">
+							<div className="flex-1 md:pl-6 text-justify text-sm leading-relaxed text-zinc-700">
 								<Reference
 									title={entry.title}
 									authors={entry.authors}

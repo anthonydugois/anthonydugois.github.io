@@ -60,120 +60,183 @@ export default function Teaching() {
 		<table className="w-full min-w-[38rem] border-collapse">
 			<thead className="text-left font-medium text-sm text-zinc-900">
 				<tr className="border-t-2 border-b border-zinc-600">
-					<th className="py-1.5 pr-2 w-auto">Year</th>
-					<th className="py-1.5 px-2 w-auto">Topic</th>
-					<th className="py-1.5 px-2 w-auto">Type</th>
-					<th className="py-1.5 px-2 w-auto">Level</th>
-					<th className="py-1.5 pl-2 w-auto">Location</th>
+					<th className="py-2 pr-2 w-auto">Year</th>
+					<th className="py-2 px-2 w-auto">Topic</th>
+					<th className="py-2 px-2 w-auto">Type</th>
+					<th className="py-2 px-2 w-auto">Level</th>
+					<th className="py-2 pl-2 w-auto">Location</th>
 				</tr>
 			</thead>
 			<tbody className="text-left font-normal text-sm text-zinc-700 align-top">
 				<tr>
-					<td rowSpan={2} className="pt-1.5 pr-2">
-						2022-2023
+					<td rowSpan={4} className="pt-2 pr-2">
+						2023-2024
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Topic
 							lang="fr"
 							label="Bases de la Programmation"
 							abbr="Basics of Computer Programming"
 						/>
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Type type="both" />
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Level level="l1" />
 					</td>
-					<td className="pt-1.5 pl-2">
-						<Location location="ufc" />
-					</td>
-				</tr>
-				<tr className="border-b border-zinc-600">
-					<td className="py-1.5 px-2">
-						<Topic lang="fr" label="Réseaux" abbr="Networks" />
-					</td>
-					<td className="py-1.5 px-2">
-						<Type type="tp" />
-					</td>
-					<td className="py-1.5 px-2">
-						<Level level="m1" />
-					</td>
-					<td className="py-1.5 pl-2">
+					<td className="pt-2 pl-2">
 						<Location location="ufc" />
 					</td>
 				</tr>
 				<tr>
-					<td rowSpan={2} className="pt-1.5 pr-2">
+					<td className="pt-2 px-2">
+						<Topic lang="fr" label="Web Avancé" abbr="Advanced Web Programming" />
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="l3" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td className="pt-2 px-2">
+						<Topic lang="fr" label="Réseaux" abbr="Networks" />
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="m1" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr className="border-b border-zinc-600">
+					<td className="py-2 px-2">
+						<Topic lang="fr" label="Compilation & Interprétation" abbr="Compilers & Interpreters" />
+					</td>
+					<td className="py-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="py-2 px-2">
+						<Level level="m1" />
+					</td>
+					<td className="py-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td rowSpan={2} className="pt-2 pr-2">
+						2022-2023
+					</td>
+					<td className="pt-2 px-2">
+						<Topic
+							lang="fr"
+							label="Bases de la Programmation"
+							abbr="Basics of Computer Programming"
+						/>
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="both" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="l1" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr className="border-b border-zinc-600">
+					<td className="py-2 px-2">
+						<Topic lang="fr" label="Réseaux" abbr="Networks" />
+					</td>
+					<td className="py-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="py-2 px-2">
+						<Level level="m1" />
+					</td>
+					<td className="py-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td rowSpan={2} className="pt-2 pr-2">
 						2021-2022
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Topic
 							lang="fr"
 							label="Circuits Logiques et Réseaux"
 							abbr="Logic Circuits & Networks"
 						/>
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Type type="both" />
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Level level="l3" />
 					</td>
-					<td className="pt-1.5 pl-2">
+					<td className="pt-2 pl-2">
 						<Location location="ensl" />
 					</td>
 				</tr>
 				<tr className="border-b border-zinc-600">
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Topic
 							lang="en"
 							label="Parallel and Distributed Algorithms & Programs"
 							abbr="Parallel and Distributed Algorithms & Programs"
 						/>
 					</td>
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Type type="both" />
 					</td>
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Level level="m1" />
 					</td>
-					<td className="py-1.5 pl-2">
+					<td className="py-2 pl-2">
 						<Location location="ensl" />
 					</td>
 				</tr>
 				<tr>
-					<td rowSpan={2} className="pt-1.5 pr-2">
+					<td rowSpan={2} className="pt-2 pr-2">
 						2020-2021
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Topic
 							lang="fr"
 							label="Architecture, Système et Réseaux"
 							abbr="Architecture, System & Networks"
 						/>
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Type type="both" />
 					</td>
-					<td className="pt-1.5 px-2">
+					<td className="pt-2 px-2">
 						<Level level="l3" />
 					</td>
-					<td className="pt-1.5 pl-2">
+					<td className="pt-2 pl-2">
 						<Location location="ensl" />
 					</td>
 				</tr>
 				<tr className="border-b-2 border-zinc-600">
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Topic lang="en" label="Integrated Project" abbr="Integrated Project" />
 					</td>
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Type type="both" />
 					</td>
-					<td className="py-1.5 px-2">
+					<td className="py-2 px-2">
 						<Level level="m1" />
 					</td>
-					<td className="py-1.5 pl-2">
+					<td className="py-2 pl-2">
 						<Location location="ensl" />
 					</td>
 				</tr>

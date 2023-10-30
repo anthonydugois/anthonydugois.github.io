@@ -1,17 +1,6 @@
 {
 	"entries": [
 		{
-			"type": "thesis",
-			"title": "Online Scheduling in Replicated Storage Systems",
-			"authors": "Dugois, A.",
-			"year": 2024,
-			"book": null,
-			"pages": null,
-			"file": "",
-			"status": "new",
-			"private": true
-		},
-		{
 			"type": "journal",
 			"title": "A Markov Chain Monte Carlo Approach to Cost Matrix Generation for Scheduling Performance Evaluation",
 			"authors": "Canon, L.-C., Dugois, A., El Sayah, M., & Héam, P.-C.",
@@ -31,6 +20,28 @@
 			"pages": "",
 			"file": "conference_canon2023b.pdf",
 			"status": "review",
+			"private": true
+		},
+		{
+			"type": "thesis",
+			"title": "Scheduling in Distributed Storage Systems",
+			"authors": "Dugois, A.",
+			"year": 2023,
+			"book": null,
+			"pages": null,
+			"file": "phd-thesis.pdf",
+			"status": "published",
+			"private": false
+		},
+		{
+			"type": "conference",
+			"title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
+			"authors": "Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
+			"year": 2023,
+			"book": "ICPP 2023",
+			"pages": "535-545",
+			"file": "conference_canon2023a.pdf",
+			"status": "published",
 			"private": false
 		},
 		{
@@ -42,17 +53,6 @@
 			"pages": "",
 			"file": "",
 			"status": "review",
-			"private": false
-		},
-		{
-			"type": "conference",
-			"title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
-			"authors": "Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
-			"year": 2023,
-			"book": "ICPP 2023",
-			"pages": "",
-			"file": "conference_canon2023a.pdf",
-			"status": "new",
 			"private": false
 		},
 		{
