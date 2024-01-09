@@ -7,7 +7,7 @@
 			"year": 2022,
 			"book": "Future Generation Computer Systems",
 			"pages": "136-150",
-			"file": "",
+			"pdf": "",
 			"status": "new",
 			"private": true
 		},
@@ -18,9 +18,21 @@
 			"year": 2023,
 			"book": "ICPP 2023",
 			"pages": "",
-			"file": "conference_canon2023b.pdf",
+			"pdf": "conference_canon2023b.pdf",
 			"status": "review",
 			"private": true
+		},
+		{
+			"type": "journal",
+			"title": "A Scheduling Framework for Distributed Key-Value Stores and its Application to Tail Latency Minimization",
+			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
+			"year": 2023,
+			"book": "Journal of Scheduling",
+			"pages": "",
+			"pdf": "journal_benmokhtar2023.pdf",
+			"doi": "",
+			"status": "new",
+			"private": false
 		},
 		{
 			"type": "thesis",
@@ -29,7 +41,8 @@
 			"year": 2023,
 			"book": null,
 			"pages": null,
-			"file": "phd-thesis.pdf",
+			"pdf": "phd-thesis.pdf",
+			"doi": "",
 			"status": "published",
 			"private": false
 		},
@@ -40,19 +53,9 @@
 			"year": 2023,
 			"book": "ICPP 2023",
 			"pages": "535-545",
-			"file": "conference_canon2023a.pdf",
+			"pdf": "conference_canon2023a.pdf",
+			"doi": "https://doi.org/10.1145/3605573.3605614",
 			"status": "published",
-			"private": false
-		},
-		{
-			"type": "journal",
-			"title": "A Scheduling Framework for Distributed Key-Value Stores and its Application to Tail Latency Minimization",
-			"authors": "Ben Mokhtar, S., Canon, L.-C., Dugois, A., Marchal, L., & Rivière, E.",
-			"year": 2023,
-			"book": "Journal of Scheduling",
-			"pages": "",
-			"file": "",
-			"status": "review",
 			"private": false
 		},
 		{
@@ -62,7 +65,8 @@
 			"year": 2022,
 			"book": "IPDPS 2022",
 			"pages": "683-693",
-			"file": "conference_canon2022.pdf",
+			"pdf": "conference_canon2022.pdf",
+			"doi": "https://doi.org/10.1109/IPDPS53621.2022.00072",
 			"status": "published",
 			"private": false
 		},
@@ -73,7 +77,8 @@
 			"year": 2022,
 			"book": null,
 			"pages": null,
-			"file": "report_canon2022.pdf",
+			"pdf": "report_canon2022.pdf",
+			"doi": "",
 			"status": "published",
 			"private": false
 		},
@@ -84,7 +89,8 @@
 			"year": 2021,
 			"book": "Euro-Par 2021",
 			"pages": "136-150",
-			"file": "conference_benmokhtar2021.pdf",
+			"pdf": "conference_benmokhtar2021.pdf",
+			"doi": "https://doi.org/10.1007/978-3-030-85665-6_9",
 			"status": "published",
 			"private": false
 		},
@@ -95,7 +101,8 @@
 			"year": 2021,
 			"book": null,
 			"pages": null,
-			"file": "report_benmokhtar2021.pdf",
+			"pdf": "report_benmokhtar2021.pdf",
+			"doi": "",
 			"status": "published",
 			"private": false
 		}

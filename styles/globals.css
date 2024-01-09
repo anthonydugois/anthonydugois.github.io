@@ -22,24 +22,34 @@ body {
 }
 
 .section-content p em {
-	@apply not-italic;
+	@apply italic;
 }
 
 .section-content p a {
-	@apply text-blue-500;
+	@apply font-bold;
+	@apply underline;
 	@apply underline-offset-4;
+	@apply decoration-1;
+	@apply decoration-blue-400;
+	@apply transition-all;
 }
 
 .section-content p a:hover,
 .section-content p a:focus {
 	@apply text-blue-600;
-	@apply underline;
+	@apply decoration-blue-600;
 }
 
 .ref {
 	@apply bg-white;
+	@apply transition-all;
 }
 
-.ref:nth-child(odd) {
-	@apply bg-zinc-100;
+.ref:hover {
+	@apply -translate-y-1;
+	@apply shadow-md;
 }
+
+/* .ref:nth-child(odd) {
+	@apply bg-zinc-100;
+} */

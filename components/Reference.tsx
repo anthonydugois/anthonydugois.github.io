@@ -26,7 +26,7 @@ export function Status({ status }: { status: string | null }) {
 	return null;
 }
 
-export function Book({ book, pages }: { book: string | null; pages: string | null }) {
+export function Book({ book, pages }: { book: string; pages: string | null }) {
 	return (
 		<>
 			In {book}
@@ -35,10 +35,18 @@ export function Book({ book, pages }: { book: string | null; pages: string | nul
 	);
 }
 
-export function File({ file }: { file: string | null }) {
+export function PDFLink({ pdf }: { pdf: string }) {
 	return (
-		<a href={`/papers/${file}`} className="text-blue-500 hover:text-blue-600">
-			PDF file
+		<a href={`/papers/${pdf}`} className="text-blue-600 hover:text-blue-700">
+			PDF
+		</a>
+	);
+}
+
+export function DOILink({ doi }: { doi: string }) {
+	return (
+		<a href={doi} className="text-blue-600 hover:text-blue-700">
+			DOI
 		</a>
 	);
 }
@@ -49,7 +57,8 @@ export default function Reference({
 	year,
 	book,
 	pages,
-	file,
+	pdf,
+	doi,
 	status,
 }: {
 	title: string;
@@ -57,7 +66,8 @@ export default function Reference({
 	year: number;
 	book: string | null;
 	pages: string | null;
-	file: string | null;
+	pdf: string | null;
+	doi: string | null;
 	status: string | null;
 }) {
 	return (
@@ -71,11 +81,19 @@ export default function Reference({
 				</>
 			)}
 			{(status === "published" || status === "new" || status === "review") &&
-				file != null &&
-				file.length > 0 && (
+				doi != null &&
+				doi.length > 0 && (
 					<>
 						{" "}
-						<File file={file} />.
+						<DOILink doi={doi} />.
+					</>
+				)}
+			{(status === "published" || status === "new" || status === "review") &&
+				pdf != null &&
+				pdf.length > 0 && (
+					<>
+						{" "}
+						<PDFLink pdf={pdf} />.
 					</>
 				)}
 		</>

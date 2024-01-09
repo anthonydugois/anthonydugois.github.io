@@ -69,7 +69,7 @@ export default function Teaching() {
 			</thead>
 			<tbody className="text-left font-normal text-sm text-zinc-700 align-top">
 				<tr>
-					<td rowSpan={4} className="pt-2 pr-2">
+					<td rowSpan={5} className="pt-2 pr-2">
 						2023-2024
 					</td>
 					<td className="pt-2 px-2">
@@ -117,15 +117,29 @@ export default function Teaching() {
 						<Location location="ufc" />
 					</td>
 				</tr>
+				<tr>
+					<td className="pt-2 px-2">
+						<Topic lang="fr" label="Compilation & Interprétation" abbr="Compilers & Interpreters" />
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="m1" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
 				<tr className="border-b border-zinc-600">
 					<td className="py-2 px-2">
-						<Topic lang="fr" label="Compilation & Interprétation" abbr="Compilers & Interpreters" />
+						<Topic lang="fr" label="Test Fonctionnel" abbr="End-to-End Testing" />
 					</td>
 					<td className="py-2 px-2">
 						<Type type="tp" />
 					</td>
 					<td className="py-2 px-2">
-						<Level level="m1" />
+						<Level level="m2" />
 					</td>
 					<td className="py-2 pl-2">
 						<Location location="ufc" />

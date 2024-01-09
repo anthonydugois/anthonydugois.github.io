@@ -36,7 +36,7 @@ export function Header({
 				<LinksContent
 					components={{
 						a: ({ children, href }) => (
-							<a href={href} className="text-blue-500 hover:text-blue-600">
+							<a href={href} className="text-blue-600 hover:text-blue-700">
 								{children}
 							</a>
 						),
@@ -47,7 +47,7 @@ export function Header({
 				<ContactContent
 					components={{
 						a: ({ children, href }) => (
-							<a href={href} className="text-blue-500 hover:text-blue-600">
+							<a href={href} className="text-blue-600 hover:text-blue-700">
 								{children}
 							</a>
 						),
