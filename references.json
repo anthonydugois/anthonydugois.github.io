@@ -8,6 +8,7 @@
 			"book": "Future Generation Computer Systems",
 			"pages": "136-150",
 			"pdf": "",
+			"doi": "",
 			"status": "new",
 			"private": true
 		},
@@ -19,6 +20,7 @@
 			"book": "ICPP 2023",
 			"pages": "",
 			"pdf": "conference_canon2023b.pdf",
+			"doi": "",
 			"status": "review",
 			"private": true
 		},
