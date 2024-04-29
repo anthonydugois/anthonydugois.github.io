@@ -5,6 +5,7 @@ import { Section, SectionTitle2, SectionTitle3, SectionContent } from "../compon
 
 import Container from "../components/Container";
 import References from "../components/References";
+import { Talks, Talk } from "../components/Talks";
 import Teaching from "../components/Teaching";
 import { Softwares, Software } from "../components/Softwares";
 import Strava from "../components/Strava";
@@ -43,6 +44,30 @@ import FootContent from "../content/foot.mdx";
 				<SectionContent>
 					<ResearchContent />
 				</SectionContent>
+				<SectionTitle3 className="mt-12">Recent Talks</SectionTitle3>
+				<Talks>
+					<Talk
+						what="ICPP 2023"
+						where="Salt Lake City, Utah"
+						when="August 2023"
+						title="Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores"
+						link="slides_icpp2023.pdf"
+					/>
+					<Talk
+						what="IPDPS 2022"
+						where="visio-conférence"
+						when="June 2022"
+						title="Bounding the Flow Time in Online Scheduling under Structured Processing Sets"
+						link="slides_ipdps2022.pdf"
+					/>
+					<Talk
+						what="Euro-Par 2021"
+						where="visio-conférence"
+						when="September 2021"
+						title="Taming Tail-Latency in Key-Value Stores: a Scheduling Perspective"
+						link="slides_europar2021.pdf"
+					/>
+				</Talks>
 				<SectionTitle3 className="mt-12">Scientific Publications</SectionTitle3>
 				<div className="mt-1 mb-6 text-lg text-zinc-700">
 					Authors appear in alphabetical order.

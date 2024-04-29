@@ -22,6 +22,8 @@ export function Type({ type }: { type: string }) {
 					<abbr title="Travaux Pratiques (Practical Work)">TP</abbr>
 				</>
 			);
+		case "other":
+			return <>{"—"}</>;
 		default:
 			return null;
 	}
@@ -69,7 +71,7 @@ export default function Teaching() {
 			</thead>
 			<tbody className="text-left font-normal text-sm text-zinc-700 align-top">
 				<tr>
-					<td rowSpan={5} className="pt-2 pr-2">
+					<td rowSpan={8} className="pt-2 pr-2">
 						2023-2024
 					</td>
 					<td className="pt-2 px-2">
@@ -91,10 +93,56 @@ export default function Teaching() {
 				</tr>
 				<tr>
 					<td className="pt-2 px-2">
+						<Topic lang="fr" label="Langages du Web" abbr="Web Programming" />
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="l2" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td className="pt-2 px-2">
 						<Topic lang="fr" label="Web Avancé" abbr="Advanced Web Programming" />
 					</td>
 					<td className="pt-2 px-2">
 						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="l3" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td className="pt-2 px-2">
+						<Topic lang="fr" label="Analyse Syntaxique" abbr="Syntax Analysis" />
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="tp" />
+					</td>
+					<td className="pt-2 px-2">
+						<Level level="l3" />
+					</td>
+					<td className="pt-2 pl-2">
+						<Location location="ufc" />
+					</td>
+				</tr>
+				<tr>
+					<td className="pt-2 px-2">
+						<Topic
+							lang="fr"
+							label="Encadrement Projet & Stage"
+							abbr="Project & Internship Supervision"
+						/>
+					</td>
+					<td className="pt-2 px-2">
+						<Type type="other" />
 					</td>
 					<td className="pt-2 px-2">
 						<Level level="l3" />
@@ -119,7 +167,11 @@ export default function Teaching() {
 				</tr>
 				<tr>
 					<td className="pt-2 px-2">
-						<Topic lang="fr" label="Compilation & Interprétation" abbr="Compilers & Interpreters" />
+						<Topic
+							lang="fr"
+							label="Compilation & Interprétation"
+							abbr="Compilers & Interpreters"
+						/>
 					</td>
 					<td className="pt-2 px-2">
 						<Type type="tp" />
