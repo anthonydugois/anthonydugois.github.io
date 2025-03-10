@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
         with:
-          node-version: '16.15.0'
+          node-version: '20.17.0'
 
       - name: Build and export
         run: |
