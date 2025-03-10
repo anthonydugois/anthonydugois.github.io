@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Anthony Dugois – Associate Professor, PhD in Computer Science",
+    "description": "Personal page of Anthony Dugois, Associate Professor at Université Marie & Louis Pasteur in Besançon."
+  },
+  "header": {
+    "title": "Anthony Dugois",
+    "subtitle": "Associate Professor at Université Marie & Louis Pasteur",
+    "email": "anthony.dugois@univ-fcomte.fr"
+  },
+  "links": [
+    {
+      "label": "Scholar",
+      "link": "https://scholar.google.com/citations?hl=fr&user=zDRg7b4AAAAJ"
+    },
+    {
+      "label": "DBLP",
+      "link": "https://dblp.org/pid/300/9053.html"
+    },
+    {
+      "label": "GitHub",
+      "link": "https://github.com/anthonydugois"
+    },
+    {
+      "label": "LinkedIn",
+      "link": "https://www.linkedin.com/in/anthonydugois/"
+    }
+  ],
+  "news": [
+    {
+      "date": "Sep 2024",
+      "content": "Started as Associate Professor at Université Marie & Louis Pasteur."
+    },
+    {
+      "date": "Aug 2024",
+      "content": "Talked at Euro-Par 2024 in Madrid."
+    },
+    {
+      "date": "Sep 2023",
+      "content": "Successfully defended my PhD at ENS Lyon."
+    }
+  ],
+  "talks": [
+    {
+      "date": "Aug 2024",
+      "location": "Madrid, Spain",
+      "conference": "Euro-Par 2024",
+      "title": "Solving the Restricted Assignment Problem to Schedule Multi-Get Requests in Key-Value Stores",
+      "slides": "./talks/euro-par2024.pdf"
+    },
+    {
+      "date": "Aug 2023",
+      "location": "Salt Lake City, Utah",
+      "conference": "ICPP 2023",
+      "title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
+      "slides": "./talks/icpp2023.pdf"
+    }
+  ],
+  "publications": [
+    {
+      "type": "journal",
+      "date": "2025",
+      "authors": "L.-C. Canon, A. Dugois, M. El Sayah, P.-C. Héam",
+      "title": "MCMC generation of cost matrices for scheduling performance evaluation",
+      "name": "Future Generation Computer Systems",
+      "doi": "https://doi.org/10.1016/j.future.2025.107758"
+    },
+    {
+      "type": "conference",
+      "date": "2024",
+      "authors": "L.-C. Canon, A. Dugois, L. Marchal",
+      "title": "Solving the Restricted Assignment Problem to Schedule Multi-get Requests in Key-Value Stores",
+      "name": "Euro-Par 2024",
+      "doi": "https://doi.org/10.1007/978-3-031-69577-3_14"
+    },
+    {
+      "type": "journal",
+      "date": "2024",
+      "authors": "S. Ben Mokhtar, L.-C. Canon, A. Dugois, L. Marchal, E. Rivière",
+      "title": "A scheduling framework for distributed key-value stores and its application to tail latency minimization",
+      "name": "Journal of Scheduling",
+      "doi": "https://doi.org/10.1007/s10951-023-00803-8"
+    },
+    {
+      "type": "conference",
+      "date": "2023",
+      "authors":"L.-C. Canon, A. Dugois, L. Marchal, E. Rivière",
+      "title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
+      "name": "ICPP 2023",
+      "doi": "https://doi.org/10.1145/3605573.3605614"
+    },
+    {
+      "type": "conference",
+      "date": "2022",
+      "authors":"L.-C. Canon, A. Dugois, L. Marchal",
+      "title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+      "name": "IPDPS 2022",
+      "doi": "https://doi.org/10.1109/IPDPS53621.2022.00072"
+    },
+    {
+      "type": "conference",
+      "date": "2021",
+      "authors":"S. Ben Mokhtar, L.-C. Canon, A. Dugois, L. Marchal, E. Rivière",
+      "title": "Taming Tail Latency in Key-Value Stores: a Scheduling Perspective",
+      "name": "Euro-Par 2021",
+      "doi": "https://doi.org/10.1007/978-3-030-85665-6_9"
+    }
+  ]
+}
