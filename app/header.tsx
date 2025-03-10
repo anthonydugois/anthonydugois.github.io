@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Magnetic } from '@/components/ui/magnetic'
 import DATA from './data.json'
 
@@ -41,7 +40,7 @@ function MagneticSocialLink({
 export function Header() {
   return (
     <header className="mb-10 flex items-start justify-between space-x-4">
-      <Image src="/pp.jpg" width={70} height={70} alt="Anthony's pic" className="rounded-full aspect-square object-cover" />
+      <img src="/pp.jpg" width={70} height={70} alt="Anthony's pic" className="rounded-full aspect-square object-cover" />
       <div className="flex-1">
         <Link href="/" className="font-medium text-black dark:text-white">
           Anthony Dugois
