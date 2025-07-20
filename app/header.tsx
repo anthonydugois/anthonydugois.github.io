@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { Magnetic } from '@/components/ui/magnetic'
-import DATA from './data.json'
+import DATA from '@/data.json'
 
 function MagneticSocialLink({
   children,
@@ -40,7 +40,13 @@ function MagneticSocialLink({
 export function Header() {
   return (
     <header className="mb-10 flex items-start justify-between space-x-4">
-      <img src="/pp.jpg" width={70} height={70} alt="Anthony's pic" className="rounded-full aspect-square object-cover" />
+      <img
+        src="/pp.jpg"
+        width={70}
+        height={70}
+        alt="Anthony's pic"
+        className="aspect-square rounded-full object-cover"
+      />
       <div className="flex-1">
         <Link href="/" className="font-medium text-black dark:text-white">
           Anthony Dugois
@@ -48,7 +54,7 @@ export function Header() {
         <p className="text-zinc-600 dark:text-zinc-500">
           Associate Professor at Université Marie & Louis Pasteur
         </p>
-        <div className="flex items-center justify-start space-x-3 mt-4">
+        <div className="mt-4 flex items-center justify-start space-x-3">
           {DATA['links'].map((link, index) => (
             <MagneticSocialLink key={index} link={link.link}>
               {link.label}

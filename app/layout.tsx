@@ -12,7 +12,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Anthony Dugois – Associate Professor, PhD in Computer Science',
-  description: 'Personal page of Anthony Dugois, Associate Professor at Université Marie & Louis Pasteur in Besançon.',
+  description:
+    'Personal page of Anthony Dugois, Associate Professor at Université Marie & Louis Pasteur in Besançon.',
 }
 
 export default function RootLayout({

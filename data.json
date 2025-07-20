@@ -29,7 +29,7 @@
   "news": [
     {
       "date": "Apr 2025",
-      "content": "New accepted paper in Euro-Par 2025."
+      "content": "Our paper \"Approximation Bounds for SLACK on Identical Parallel Machines\" has been accepted at Euro-Par 2025 (nominated in the Best Paper session)."
     },
     {
       "date": "Sep 2024",
@@ -37,14 +37,24 @@
     },
     {
       "date": "Aug 2024",
-      "content": "Talked at Euro-Par 2024 in Madrid."
-    },
-    {
-      "date": "Sep 2023",
-      "content": "Successfully defended my PhD at ENS Lyon."
+      "content": "Presented our paper \"Solving the Restricted Assignment Problem to Schedule Multi-Get Requests in Key-Value Stores\" at Euro-Par 2024 in Madrid."
     }
   ],
   "talks": [
+    {
+      "date": "Apr 2025",
+      "location": "Lyon, France",
+      "conference": "GdT SCALE",
+      "title": "Preliminary results on robust non-clairvoyant scheduling with classification models",
+      "slides": ""
+    },
+    {
+      "date": "Dec 2024",
+      "location": "Paris, France",
+      "conference": "GdT GOThA",
+      "title": "A 4/3-approximation ratio proof for SLACK",
+      "slides": ""
+    },
     {
       "date": "Aug 2024",
       "location": "Madrid, Spain",
@@ -53,14 +63,78 @@
       "slides": "./talks/euro-par2024.pdf"
     },
     {
+      "date": "Jun 2024",
+      "location": "Aussois, France",
+      "conference": "17th Scheduling for Large-Scale Systems Workshop",
+      "title": "Solving the Restricted Assignment Problem to Schedule Multi-Get Requests in Key-Value Stores",
+      "slides": ""
+    },
+    {
       "date": "Aug 2023",
       "location": "Salt Lake City, Utah",
       "conference": "ICPP 2023",
       "title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
       "slides": "./talks/icpp2023.pdf"
+    },
+    {
+      "date": "Jul 2023",
+      "location": "Annecy, France",
+      "conference": "COMPAS 2023",
+      "title": "Hector: A Framework to Design and Evaluate Scheduling Strategies in Persistent Key-Value Stores",
+      "slides": ""
+    },
+    {
+      "date": "Nov 2022",
+      "location": "Metz, France",
+      "conference": "GdT GOThA",
+      "title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+      "slides": ""
+    },
+    {
+      "date": "Jun 2022",
+      "location": "Online",
+      "conference": "IPDPS 2022",
+      "title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+      "slides": ""
+    },
+    {
+      "date": "May 2022",
+      "location": "Aussois, France",
+      "conference": "New Challenges in Scheduling Theory",
+      "title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+      "slides": ""
+    },
+    {
+      "date": "Apr 2022",
+      "location": "Besançon, France",
+      "conference": "GdT SCALE",
+      "title": "A scheduling framework for distributed key-value stores and its application to tail latency minimization",
+      "slides": ""
+    },
+    {
+      "date": "Dec 2021",
+      "location": "Lyon, France",
+      "conference": "GdT SCALE",
+      "title": "Bounding the Flow Time in Online Scheduling with Structured Processing Sets",
+      "slides": ""
+    },
+    {
+      "date": "Sep 2021",
+      "location": "Online",
+      "conference": "Euro-Par 2021",
+      "title": "Taming Tail-Latency in Key-Value Stores: a Scheduling Perspective",
+      "slides": ""
     }
   ],
   "publications": [
+    {
+      "type": "conference",
+      "date": "2025",
+      "authors": "L.-C. Canon, A. Dugois, P.-C. Héam, I. Jecker",
+      "title": "Approximation Bounds for SLACK on Identical Parallel Machines",
+      "name": "Euro-Par 2025 (to appear)",
+      "doi": ""
+    },
     {
       "type": "journal",
       "date": "2025",
