@@ -28,19 +28,30 @@
   ],
   "news": [
     {
+      "date": "Sep 2025",
+      "content": "I will be present at the Fall school MoMA (Modern Optimization Methods and Models in Algorithm Design) in Aussois. See you there!"
+    },
+    {
+      "date": "Aug 2025",
+      "content": "Presented our paper \"Approximation Bounds for SLACK on Identical Parallel Machines\" at Euro-Par 2025 in Dresden."
+    },
+    {
       "date": "Apr 2025",
       "content": "Our paper \"Approximation Bounds for SLACK on Identical Parallel Machines\" has been accepted at Euro-Par 2025 (nominated in the Best Paper session)."
     },
     {
       "date": "Sep 2024",
       "content": "Started as Associate Professor at Université Marie & Louis Pasteur."
-    },
-    {
-      "date": "Aug 2024",
-      "content": "Presented our paper \"Solving the Restricted Assignment Problem to Schedule Multi-Get Requests in Key-Value Stores\" at Euro-Par 2024 in Madrid."
     }
   ],
   "talks": [
+    {
+      "date": "Aug 2025",
+      "location": "Dresden, Germany",
+      "conference": "Euro-Par 2025",
+      "title": "Approximation Bounds for SLACK on Identical Parallel Machines",
+      "slides": "./talks/euro-par2025.pdf"
+    },
     {
       "date": "Apr 2025",
       "location": "Lyon, France",
@@ -132,8 +143,8 @@
       "date": "2025",
       "authors": "L.-C. Canon, A. Dugois, P.-C. Héam, I. Jecker",
       "title": "Approximation Bounds for SLACK on Identical Parallel Machines",
-      "name": "Euro-Par 2025 (to appear)",
-      "doi": ""
+      "name": "Euro-Par 2025",
+      "doi": "https://doi.org/10.1007/978-3-031-99854-6_9"
     },
     {
       "type": "journal",
