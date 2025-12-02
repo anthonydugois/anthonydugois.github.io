@@ -46,6 +46,13 @@
   ],
   "talks": [
     {
+      "date": "Nov 2025",
+      "location": "Aussois, France",
+      "conference": "Fall School MoMA",
+      "title": "Efficient Algorithms for the Restricted Assignment Problem on Circular Intervals",
+      "slides": ""
+    },
+    {
       "date": "Aug 2025",
       "location": "Dresden, Germany",
       "conference": "Euro-Par 2025",
